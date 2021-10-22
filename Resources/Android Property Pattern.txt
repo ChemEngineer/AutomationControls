@@ -1,0 +1,1 @@
+﻿*propType* *propName*; public *propType* get*propName* () { return this.*propName*; } public void set*propName* (*propType* *propName*) { this.*propName* =*propName*; }

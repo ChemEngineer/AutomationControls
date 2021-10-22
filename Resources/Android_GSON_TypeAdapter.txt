@@ -1,0 +1,21 @@
+public static class *ClassName*TypeAdapter extends TypeAdapter<*ClassName*> {
+
+			@Override
+			public *ClassName* read(JsonReader in) throws IOException {
+				final *ClassName* data = new *ClassName*();
+
+			    in.beginObject();
+			    while (in.hasNext()) {
+			      String s = in.nextName();
+			   	*1-1*  
+			    *2-2*  
+			    in.endObject();
+			    return data;
+			}
+
+			@Override
+			public void write(JsonWriter out, *ClassName* data) throws IOException {
+				out.beginObject();
+				*3-3*
+			}
+}

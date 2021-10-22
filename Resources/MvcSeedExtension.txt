@@ -1,0 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using *NS*.Models;
+
+namespace *NS*.Extensions
+{
+    public static class *CL*Extensions
+    {
+        public static void Seed*CL*(this ModelBuilder builder)
+        {
+            builder.Entity<*CL*>().HasData(
+               new *CL*
+               {
+                   Id = 1
+               });
+        }
+    }
+}

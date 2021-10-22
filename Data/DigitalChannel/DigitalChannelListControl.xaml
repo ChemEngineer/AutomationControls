@@ -1,0 +1,23 @@
+<UserControl x:Class="AutomationControls.Controllers.DataClasses.DigitalChannelListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctrl="clr-namespace:AutomationControls.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel>
+        <ComboBox  x:Name="cbDevices" ItemsSource="{Binding digitalChannelNames}" SelectedItem="{Binding selectedDevice}"  DockPanel.Dock="Top" />
+        <TextBox Text="{Binding profileName}" DockPanel.Dock="Top" />
+        <DataGrid ItemsSource="{Binding}"  x:Name="dg" DockPanel.Dock="Top"  IsSynchronizedWithCurrentItem="True"/>
+        <DockPanel x:Name="dp" DockPanel.Dock="Top"  />
+       <!--<DataGrid AutoGenerateColumns="False" ItemsSource="{Binding}" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="PinDesignation" Binding="{Binding PinDesignation , UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="State" Binding="{Binding State , UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="Direction" Binding="{Binding Direction , UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="Value" Binding="{Binding Value , UpdateSourceTrigger=PropertyChanged}" />
+            </DataGrid.Columns>
+        </DataGrid>-->
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,33 @@
+//Server
+    //.csproj
+        <ItemGroup>
+            <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.1" />
+            <PackageReference Include = "Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version = "3.1.1" />
+            <PackageReference Include = "Microsoft.AspNetCore.Identity.UI" Version = "3.1.1" />
+            <PackageReference Include = "Microsoft.EntityFrameworkCore.Sqlite" Version = "3.1.6" />
+            <PackageReference Include = "Microsoft.EntityFrameworkCore.SqlServer" Version = "3.1.1" />
+            <PackageReference Include = "Microsoft.EntityFrameworkCore.Tools" Version = "3.1.1" />
+            <PackageReference Include = "Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version = "1.9.10" />
+            <PackageReference Include = "Microsoft.VisualStudio.Web.CodeGeneration.Design" Version = "3.1.3" />
+        </ ItemGroup >
+
+    //appsetting.json
+        ConnectionStrings": {
+            "DefaultConnection": "Server=EntropyHome.Asuscomm.com;Port=3306;UID=Entropy;PWD=En3123123;Database=DB;"
+        }
+
+
+
+    //Startup
+        //ConfigureServices - Startup
+             services.AddDbContextPool<AppDBContext>(options =>
+                        {
+                            var connetionString = Configuration.GetConnectionString("DefaultConnection");
+                            options.UseMySql(connetionString, ServerVersion.AutoDetect(connetionString));
+                        });
+          
+             services.AddTransient<I*CL*Repository, *CL*DataAccessLayer>();
+
+
+
+

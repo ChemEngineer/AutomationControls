@@ -1,0 +1,8 @@
+ArrayList<BtDataReceiveListener> btDataReceiveListeners = new ArrayList<BtDataReceiveListener> ();
+public interface BtDataReceiveListener  {  void onBtDataReceiveListener(args); }
+public void setBtDataReceiveListener (BtDataReceiveListener  btDataReceiveListener)  { this.btDataReceiveListeners.add(btDataReceiveListener); }
+void UpdateBtDataReceiveListeners(args) {
+for (BtDataReceiveListener listener : btDataReceiveListeners) { listener.onBtDataReceiveListener(args); } }
+
+
+

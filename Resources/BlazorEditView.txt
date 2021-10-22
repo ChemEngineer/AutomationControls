@@ -1,0 +1,22 @@
+@page "/*CL*Edit"
+
+@inject *CL*Service service
+@inject NavigationManager UriHelper
+
+@if(service.data != null)
+{
+    <p><em>*CL*</em></p>  
+    <div>
+        *Data*
+    </div>
+    <div>
+        <button @onclick="Submit">Submit</button>
+    </div>
+}
+
+@code {
+    public void Submit()
+    {
+        UriHelper.NavigateTo("/*CL*List");
+    }
+}

@@ -1,0 +1,205 @@
+﻿<UserControl x:Class="AutomationControls.Communication.Serial.UserControls.SerialPortOptionsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:conv="clr-namespace:AutomationControls.WPF.Converters"
+             xmlns:sp="clr-namespace:System.IO.Ports;assembly=System"
+             xmlns:uc="clr-namespace:AutomationControls.Communication.Serial.UserControls"
+             mc:Ignorable="d" 
+            >
+    <DockPanel>
+        <GroupBox Header="Monitor Rx" DockPanel.Dock="Right"   >
+            <uc:SerialPortReceiveControl />
+        </GroupBox>
+        <DockPanel DockPanel.Dock="Top" >
+            <TextBlock x:Name="tbStatus" DockPanel.Dock="Top" Text="Status" />
+            <Button x:Name="btnConnect" Content="Connect" Click="btnConnect_Click" />
+            <Button x:Name="btnDisconnect" Content="Disconnect" Click="btnDisconnect_Click" />
+            <CheckBox x:Name="cbStayConnected" Content="Stay Connected" IsChecked="{Binding keepOpen}" />
+            
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top" >
+            <Button x:Name="btnSend" Content="Send" Click="btnSend_Click" />
+            <TextBox x:Name="tbSend" />
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Left">
+            <Grid DockPanel.Dock="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="70"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0"  Text="Ports"/>
+                <ComboBox  Grid.Row="0" Grid.Column="1" ItemsSource="{Binding lstPorts, UpdateSourceTrigger=PropertyChanged}"  SelectedItem="{Binding PortName, UpdateSourceTrigger=PropertyChanged}" />
+                <!--<TextBox Grid.Row="0" Grid.Column="2" Text="{Binding PortName , UpdateSourceTrigger=PropertyChanged}" />-->
+
+                <TextBlock  Grid.Row="1" Grid.Column="0" Text="Baud" />
+                <ComboBox  Grid.Row="1" Grid.Column="1" ItemsSource="{Binding lstBaud, UpdateSourceTrigger=PropertyChanged}"  SelectedItem="{Binding BaudRate, UpdateSourceTrigger=PropertyChanged}" />
+                <!--<TextBox  Grid.Row="1" Grid.Column="2" Text="{Binding BaudRate , UpdateSourceTrigger=PropertyChanged}" />-->
+
+                <TextBlock  Grid.Row="2" Grid.Column="0" Text="DataBits" />
+                <ComboBox  Grid.Row="2" Grid.Column="1" ItemsSource="{Binding lstDataBits, UpdateSourceTrigger=PropertyChanged}"  SelectedItem="{Binding DataBits, UpdateSourceTrigger=PropertyChanged}" />
+                <!--<TextBox  Grid.Row="2" Grid.Column="2" Text="{Binding DataBits , UpdateSourceTrigger=PropertyChanged}" />-->
+
+                <TextBlock  Grid.Row="3" Grid.Column="0"  Text="StopBits" />
+                <ComboBox   Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Source={conv:EnumBindingSource {x:Type sp:StopBits}}}" SelectedItem="{Binding StopBits}"/>
+                <!--<TextBox  Grid.Row="3" Grid.Column="2" Text="{Binding StopBits , UpdateSourceTrigger=PropertyChanged}" />-->
+
+                <TextBlock Grid.Row="4" Grid.Column="0"   Text="Parity" />
+                <ComboBox   Grid.Row="4" Grid.Column="1" ItemsSource="{Binding Source={conv:EnumBindingSource {x:Type sp:Parity} }}" SelectedItem="{Binding Parity}"/>
+                <!--<TextBox  Grid.Row="4" Grid.Column="2" Text="{Binding Parity , UpdateSourceTrigger=PropertyChanged}" />-->
+
+                <TextBlock  Grid.Row="5" Grid.Column="0" Text="Handshake" />
+                <ComboBox  Grid.Row="5" Grid.Column="1"  ItemsSource="{Binding Source={conv:EnumBindingSource {x:Type sp:Handshake} }}" SelectedItem="{Binding Handshake}"/>
+                <!--<TextBox  Grid.Row="5" Grid.Column="2" Text="{Binding Handshake , UpdateSourceTrigger=PropertyChanged}" />-->
+
+                <TextBlock  Grid.Row="6" Grid.Column="0"  Text="Encoding" />
+                <ComboBox  Grid.Row="6" Grid.Column="1" ItemsSource="{Binding lstEncodings, UpdateSourceTrigger=PropertyChanged}"  SelectedItem="{Binding Encoding, UpdateSourceTrigger=PropertyChanged}" />
+
+
+            </Grid>
+            <!--<StackPanel>
+                <GroupBox Header="Selectable" >
+                    <StackPanel>
+                        <CheckBox Content="DiscardNull" IsChecked="{Binding DiscardNull , UpdateSourceTrigger=PropertyChanged}" >
+                            <CheckBox.ToolTip>
+                                <ToolTip >
+                                    <TextBlock  xml:space="preserve">true if null bytes are ignored; otherwise false. The default is false.
+                        This value should normally be set to false, especially for binary transmissions. Setting this property to true can cause unexpected results for UTF32- and UTF16-encoded bytes.
+                                    </TextBlock>
+                                </ToolTip>
+                            </CheckBox.ToolTip>
+                        </CheckBox>
+                        <CheckBox Content="DtrEnable" IsChecked="{Binding DtrEnable , UpdateSourceTrigger=PropertyChanged}" >
+                            <CheckBox.ToolTip>
+                                <ToolTip >
+                                    <TextBlock  xml:space="preserve">Data Terminal Ready (DTR) is typically enabled during XON/XOFF software handshaking and Request to Send/Clear to Send (RTS/CTS) hardware handshaking, and modem communications.</TextBlock>
+                                </ToolTip>
+                            </CheckBox.ToolTip>
+                        </CheckBox>
+                        <CheckBox Content="RtsEnable" IsChecked="{Binding RtsEnable , UpdateSourceTrigger=PropertyChanged}" >
+                            <CheckBox.ToolTip>
+                                <ToolTip >
+                                    <TextBlock  xml:space="preserve">The Request to Transmit (RTS) signal is typically used in Request to Send/Clear to Send (RTS/CTS) hardware handshaking.</TextBlock>
+                                </ToolTip>
+                            </CheckBox.ToolTip>
+                        </CheckBox>
+                        <CheckBox Content="BreakState" IsChecked="{Binding BreakState , UpdateSourceTrigger=PropertyChanged}" >
+                            <CheckBox.ToolTip>
+                                <ToolTip >
+                                    <TextBlock  xml:space="preserve">The break signal state occurs when a transmission is suspended and the line is placed in a break state (all low, no stop bit) until released. 
+                            To enter a break state, set this property to true. 
+                            If the port is already in a break state, setting this property again to true does not result in an exception. 
+                            It is not possible to write to the SerialPort object while BreakState is true.</TextBlock>
+                                </ToolTip>
+                            </CheckBox.ToolTip>
+                        </CheckBox>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Read-Only" >
+                    <StackPanel>
+                        <CheckBox Content="CDHolding" IsChecked="{Binding CDHolding , UpdateSourceTrigger=PropertyChanged}" >
+                            <CheckBox.ToolTip>
+                                <ToolTip >
+                                    <TextBlock xml:space="preserve">This property can be used to monitor the state of the carrier detection line for a port.
+                                No carrier usually indicates that the receiver has hung up and the carrier has been dropped.</TextBlock>
+                                </ToolTip>
+                            </CheckBox.ToolTip>
+                        </CheckBox>
+                        <CheckBox Content="CtsHolding" IsChecked="{Binding CtsHolding , UpdateSourceTrigger=PropertyChanged}" >
+                            <CheckBox.ToolTip>
+                                <ToolTip >
+                                    <TextBlock xml:space="preserve" >The Clear-to-Send (CTS) line is used in Request to Send/Clear to Send (RTS/CTS) hardware handshaking. 
+                                The CTS line is queried by a port before data is sent.</TextBlock>
+                                </ToolTip>
+                            </CheckBox.ToolTip>
+                        </CheckBox>
+                        <CheckBox Content="DsrHolding" IsChecked="{Binding DsrHolding , UpdateSourceTrigger=PropertyChanged}" >
+                            <CheckBox.ToolTip>
+                                <ToolTip >
+                                    <TextBlock  xml:space="preserve">This property is used in Data Set Ready/Data Terminal Ready (DSR/DTR) handshaking. 
+                                The Data Set Ready (DSR) signal is usually sent by a modem to a port to indicate that it is ready for data transmission or data reception.</TextBlock>
+                                </ToolTip>
+                            </CheckBox.ToolTip>
+                        </CheckBox>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>-->
+        </DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock  Grid.Row="0" Grid.Column="0" Text="ReadBufferSize" Margin="0,0,0,24" Grid.RowSpan="2" />
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ReadBufferSize , UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,24" Grid.RowSpan="2" />
+            <TextBlock Grid.Row="1" Grid.Column="0"  Text="ReadTimeout" Margin="0,1,0,23" Grid.RowSpan="2" />
+            <TextBox Grid.Row="1" Grid.Column="1"  Text="{Binding ReadTimeout , UpdateSourceTrigger=PropertyChanged}" Margin="0,1,0,23" Grid.RowSpan="2" />
+            <TextBlock Grid.Row="2" Grid.Column="0"  Text="WriteBufferSize" Margin="0,2,0,22" Grid.RowSpan="2" />
+            <TextBox Grid.Row="2" Grid.Column="1"  Text="{Binding WriteBufferSize , UpdateSourceTrigger=PropertyChanged}" Margin="0,2,0,22" Grid.RowSpan="2" />
+            <TextBlock Grid.Row="3" Grid.Column="0"  Text="WriteTimeout" Margin="0,3,0,21" Grid.RowSpan="2" />
+            <TextBox Grid.Row="3" Grid.Column="1"  Text="{Binding WriteTimeout , UpdateSourceTrigger=PropertyChanged}" Margin="0,3,0,21" Grid.RowSpan="2" />
+            <TextBlock Grid.Row="4" Grid.Column="0"  Text="NewLine" Margin="0,4,0,20" Grid.RowSpan="2" />
+            <TextBox Grid.Row="4" Grid.Column="1"  Text="{Binding NewLine , UpdateSourceTrigger=PropertyChanged}" Margin="0,4,0,20" Grid.RowSpan="2" />
+            <TextBlock Grid.Row="5" Grid.Column="0"  Text="ReceivedBytesThreshold" Margin="0,5,0,19" Grid.RowSpan="2" />
+            <TextBox  Grid.Row="5" Grid.Column="1"  Text="{Binding ReceivedBytesThreshold , UpdateSourceTrigger=PropertyChanged}" Margin="0,5,0,19" Grid.RowSpan="2" />
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="ParityReplace" Margin="0,6,0,28.537" Grid.RowSpan="2" />
+            <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding ParityReplace , UpdateSourceTrigger=PropertyChanged}" Margin="0,6,0,28.537" Grid.RowSpan="2" />
+
+        </Grid>
+        
+        <!--<GroupBox Header="Read-Only"  >
+            <Grid DockPanel.Dock="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="94"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock  Grid.Row="0" Grid.Column="0" Text="BytesToWrite" >
+                    <TextBlock.ToolTip>
+                        <ToolTip >
+                            <TextBlock xml:space="preserve">The number of bytes of data in the send buffer.
+                                    The send buffer includes the serial driver's send buffer as well as internal buffering in the SerialPort object itself.</TextBlock>
+                        </ToolTip>
+                    </TextBlock.ToolTip>
+                    </TextBlock>
+                <TextBox  Grid.Row="0" Grid.Column="1" Text="{Binding BytesToWrite , UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock  Grid.Row="1" Grid.Column="0"  Text="BytesToRead" >
+                    <TextBlock.ToolTip>
+                        <ToolTip>
+                            <TextBlock  xml:space="preserve">The number of bytes of data in the receive buffer.
+                                    The receive buffer includes the serial driver's receive buffer as well as internal buffering in the SerialPort object itself.
+                                    
+                                    Because the BytesToRead property represents both the SerialPort buffer and the Windows-created buffer, it can return a greater value than the ReadBufferSize property, which represents only the Windows-created buffer.</TextBlock>
+                        </ToolTip>
+                    </TextBlock.ToolTip>
+                    </TextBlock>
+                <TextBox  Grid.Row="1" Grid.Column="1"  Text="{Binding BytesToRead , UpdateSourceTrigger=PropertyChanged}" />
+                <CheckBox Grid.Row="2" Grid.Column="1"   Content="IsOpen" IsChecked="{Binding IsOpen }" Focusable="False"/>
+            </Grid>
+        </GroupBox>-->
+    </DockPanel>
+</UserControl>

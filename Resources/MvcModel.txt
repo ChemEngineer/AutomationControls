@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using *NS*.Extensions; 
+
+namespace *NS*.Models        
+{
+
+	*ENUM*
+
+    //[Table("*CL*")]
+    public class *CL* 
+    {
+        public *CL*()   {  }
+        
+        *PROP*
+
+    }
+}
+

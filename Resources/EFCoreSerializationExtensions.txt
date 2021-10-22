@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+
+namespace *NS*.Extensions
+{
+    public static class SerializationExtensions
+    {
+        public static string ToCSV<T>(this IEnumerable<T> lst)
+        {
+            String s = "";
+            foreach (var v in lst) s = s.Remove(s.Length - 1);
+            return s;
+        }
+
+        public static List<string> FromCSV(this string csv)         
+        {
+            if (csv == null) csv = "";
+            List<string> ret = new List<string>();
+            string[] str = csv.Split(new[] { "," }, StringSplitOptions.None);
+            foreach(var v in str) { ret.Add(v); }
+            return ret;
+        }
+    }
+}

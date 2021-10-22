@@ -1,0 +1,35 @@
+public boolean Serialize(String path, Context c) {
+		 
+			try {
+				Type listType = new TypeToken<*ClassName*>() {}.getType();
+				Gson gson = new GsonBuilder().registerTypeAdapter(listType, new *ClassName*.*ClassName*Serializer()).create();
+				String result = gson.toJson(this, listType);
+				WriteToFile(path, result, c);
+				return true;
+			}
+			catch(Throwable t) { return false; }	
+}
+
+  public String Serialize() {
+
+        try {
+            Type listType = new TypeToken<*ClassName*>() {
+            }.getType();
+            GsonBuilder builder = new GsonBuilder();
+            builder.disableHtmlEscaping();
+            builder.serializeNulls();
+            // builder.serializeNulls();
+            Gson gson = builder.registerTypeAdapter(listType, new *ClassName*.*ClassName*Serializer()).create();
+            String result = gson.toJson(this, listType);
+            return result;
+        } catch (Throwable t) {
+            return "";
+        }
+    }
+
+private static File getPublicStorageDir(String path) {       
+			File file = new File(path);
+			File parent = file.getParentFile();
+			if (parent != null) parent.mkdirs();
+			return file;
+		}

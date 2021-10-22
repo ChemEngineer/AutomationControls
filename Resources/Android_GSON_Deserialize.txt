@@ -1,0 +1,13 @@
+	 public *ClassName* deserialize(String path, Context c) {
+		*ClassName* ret = new *ClassName*();
+			try {
+				Type listType = new TypeToken<*ClassName*>() {}.getType();
+				Gson gson = new GsonBuilder().registerTypeAdapter(listType, new *ClassName*.*ClassName*Serializer()).create();
+				String result = gson.toJson(this, listType);
+				 ret = gson.fromJson(ReadFromFile(path, c), listType);
+			}
+			catch(Throwable t) { }	
+			return ret;
+	}
+
+	

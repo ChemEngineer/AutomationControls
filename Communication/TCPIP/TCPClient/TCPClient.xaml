@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="AutomationControls.Communication.TCPIP.UserControls.TCPClient"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AutomationControls.Communication.TCPIP.UserControls"
+             xmlns:sp="clr-namespace:AutomationControls.Communication" DataContextChanged="UserControl_DataContextChanged">
+    <DockPanel>
+        <Label x:Name="lblConnectionToggle" MouseLeftButtonDown="lblConnectionToggle_MouseLeftButtonDown" Background="Black" HorizontalContentAlignment="Left" Style="{x:Null}" Content="{Binding connectionStatus}" Foreground="White" DockPanel.Dock="Top" />
+        <DockPanel>
+            <DockPanel LastChildFill="False">
+                <StackPanel DockPanel.Dock="Top"  >
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox x:Name="cbReceive" Checked="CheckBox_Checked" Content="Receive" Panel.ZIndex="1" HorizontalAlignment="Right"/>
+                        <CheckBox x:Name="cbMonitorConnectionStatus" Checked="cbMonitorConnectionStatus_Checked"  Content="Monitor Connection Status" Panel.ZIndex="1" HorizontalAlignment="Right"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Text="IP Address:" VerticalAlignment="Center" MinWidth="100" />
+                        <TextBox x:Name="tbip" VerticalAlignment="Center" Text="{Binding ipAddress, UpdateSourceTrigger=PropertyChanged}" KeyDown="TextBox_KeyDown_ConnectAsync" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Text="Port:" VerticalAlignment="Center" MinWidth="100" />
+                        <TextBox x:Name="tbport" VerticalAlignment="Center" Text="{Binding port, UpdateSourceTrigger=PropertyChanged}" KeyDown="TextBox_KeyDown_ConnectAsync"/>
+                    </StackPanel>
+                    <StackPanel >
+                        <DockPanel  >
+                            <Button x:Name="btnSend" Click="btnSend_Click" Content="Send" />
+                            <Button x:Name="btnCancel" Click="btnCancel_Click" Content="Cancel" />
+                            <TextBox x:Name="tbSend" VerticalAlignment="Center" KeyDown="tbSend_KeyDown" HorizontalAlignment="Stretch"  />
+                        </DockPanel>
+                        <DockPanel>
+                            <!--<local:EncodingsSelector x:Name="encodingSelector"  />-->
+                            <!--<Label Content="Encoding" DockPanel.Dock="Top" />
+                        <RadioButton x:Name="rbAscii" Content="Ascii" GroupName="a" IsChecked="True" Click="rbEncoding_Click" />
+                        <RadioButton x:Name="rbBytes" Content="Bytes" GroupName="a"  Click="rbEncoding_Click"/>
+                        <RadioButton x:Name="rbChars" Content="Chars" GroupName="a"  Click="rbEncoding_Click"/>-->
+                            <!--<RadioButton x:Name="rbAscii" Content="Ascii" GroupName="a" />-->
+                        </DockPanel>
+                    </StackPanel>
+                </StackPanel>
+                <sp:CommunicationMonitor x:Name="commMonitor" Panel.ZIndex="200" />
+                <!--<RichTextBox x:Name="rtb" MinWidth="300" Opacity=".8" />-->
+            </DockPanel>
+        </DockPanel>
+    </DockPanel>
+</UserControl>

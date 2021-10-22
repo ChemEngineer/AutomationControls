@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
+namespace *NS*.Components
+{
+    public class *CL*Service
+    {
+        #region Property
+        private readonly *CL*DbContext context;
+        #endregion
+
+        #region Constructor
+        public *CL*Service(*CL*DbContext Context)
+        {
+            context = Context;
+        }
+        #endregion
+
+        #region Get List of *CL*
+        public async Task<List<*CL*>> GetAllAsync()
+        {
+            return await context.data.ToListAsync();
+        }
+        #endregion
+
+        #region Insert *CL*
+        public async Task<bool> InsertAsync(*CL* employee)
+        {
+            await context.data.AddAsync(employee);
+            await context.SaveChangesAsync();
+            return true;
+        }
+        #endregion
+
+        #region Get *CL* by Id
+        public async Task<*CL*> GetAsync(int Id)
+        {
+            *CL* data = await context.data.FirstOrDefaultAsync(c => c.Id.Equals(Id));
+            return data;
+        }
+        #endregion
+
+        #region Update *CL*
+        public async Task<bool> UpdateAsync(*CL* employee)
+        {
+             context.data.Update(employee);
+            await context.SaveChangesAsync();
+            return true;
+        }
+        #endregion
+
+        #region Delete*CL*
+        public async Task<bool> DeleteAsync(*CL* employee)
+        {
+            context.Remove(employee);
+            await context.SaveChangesAsync();
+            return true;
+        }
+        #endregion
+    }
+}

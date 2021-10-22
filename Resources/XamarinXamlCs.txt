@@ -1,0 +1,15 @@
+using Xamarin.Forms;
+
+namespace *NS*
+{
+    public partial class *ClassName*Control : ContentPage
+    {
+
+        public *ClassName*Control()  : base()
+        {
+            InitializeComponent();
+        }
+
+        *methods*
+    }
+}

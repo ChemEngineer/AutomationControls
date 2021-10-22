@@ -1,0 +1,14 @@
+@page "/*CLLOWER*/add"
+@page "/*CLLOWER*/edit/{Id:int}"
+@inherits AddEdit*CL*Base
+
+<h1>@Title *CL*</h1>
+<hr/>
+<EditForm Model="@data" OnValidSubmit="Save*CL*">
+    <DataAnnotationsValidator />
+    *PROPS*
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button class="btn btn-light" @onclick="Cancel">Cancel</button>
+    </div>
+</EditForm>

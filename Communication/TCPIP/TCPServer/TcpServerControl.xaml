@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="AutomationControls.Communication.TCPIP.UserControls.TCPServer.TcpServerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+            DataContextChanged="UserControl_DataContextChanged" >
+    <DockPanel LastChildFill="False" >
+        <DockPanel DockPanel.Dock="Left" >
+            <CheckBox x:Name="cbIsConnected" IsChecked="{Binding data.isConnected}" />
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <DockPanel >
+                <TextBlock Text="IP" />
+                <TextBox Text="{Binding data.ipAddress}" />
+            </DockPanel>
+            <DockPanel >
+                <TextBlock Text="Port" />
+                <TextBox Text="{Binding data.port}" />
+            </DockPanel>
+
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Bottom">
+            <TextBlock x:Name="tbBarcode" MinWidth="100"  Text="Barcode" Foreground="Red" FontSize="25"/>
+        </DockPanel>
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,98 @@
+using *NS*.Server.Interfaces;
+using *NS*.Data;
+using *NS*.Server.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace *NS*.Server.DataAccess
+{
+    public class *CL*DataAccessLayer : I*CL*Repository
+    {
+        AppDBContext _dbContext = null;
+
+        public *CL*DataAccessLayer(AppDBContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        public List<*CL*Data> ReadAll()
+        {
+            List<*CL*Data> lst = new List<*CL*Data>();
+            try
+            {
+                lst = _dbContext.lst*CL*.ToList();
+            }
+            catch
+            {
+                Console.WriteLine("Could not retrieve *CL* List from SQL");
+            }
+            return lst;
+        }
+
+   
+        public *CL*Data Create(*CL*Data data)
+        {
+            try
+            {
+                using (var transaction = _dbContext.Database.BeginTransaction())
+                {
+                    _dbContext.lst*CL*.Add(data);
+                    _dbContext.SaveChanges();
+                    transaction.Commit();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Could not create *CL* - SQL");
+                Console.WriteLine(e.Message);
+            }
+            return data;
+        }
+
+        public *CL*Data Update(*CL*Data data)
+        {
+            try
+            {
+                _dbContext.Entry(data).State = EntityState.Modified;
+                _dbContext.SaveChanges();
+            }
+            catch
+            {
+                Console.WriteLine("Could not update *CL* - SQL");
+            }
+            return data;
+        }
+
+        public *CL*Data Read(int id)
+        {
+            *CL*Data data = new *CL*Data();
+            try
+            {
+                 data = _dbContext.lst*CL*.Find(id);
+            }
+            catch
+            {
+                Console.WriteLine("Could not find *CL* " + id + " - SQL");
+            }
+            return data;
+        }
+  
+        public *CL*Data Delete(int id)
+        {
+            *CL*Data data = new *CL*Data();
+            try
+            {
+                data = _dbContext.lst*CL*.Find(id);
+                _dbContext.lst*CL*.Remove(data);
+                _dbContext.SaveChanges();
+            }
+            catch
+            {
+                Console.WriteLine("Could not delete *CL* - SQL");
+            }
+            return data;
+        }    
+    }
+}

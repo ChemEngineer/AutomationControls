@@ -1,0 +1,25 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using *NS*.Models;
+using *NS*.Extensions;
+
+namespace *NS*.Data
+{
+    public class *CL*DbContext : DbContext
+    {
+        public DbSet<*CL*> data { get; set; }
+
+        public *CL*DbContext()  {  }
+
+        public *CL*DbContext(DbContextOptions<*CL*DbContext> options)
+            : base(options)
+        {
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Seed*CL*();
+        }
+    }
+}

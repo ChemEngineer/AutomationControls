@@ -1,0 +1,13 @@
+public static class *ClassName*Deserializer implements JsonDeserializer<*ClassName*> {
+
+		public *ClassName*Deserializer() { super(); }
+
+		@Override
+		public *ClassName* deserialize(JsonElement json, Type type, JsonDeserializationContext c) throws JsonParseException {
+			
+			*ClassName* ret = new *ClassName*();
+			JsonObject jobj =(JsonObject) json;
+			*1-1*		
+			return ret;
+		}
+}

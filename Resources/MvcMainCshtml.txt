@@ -1,0 +1,21 @@
+@model List<*NS*.Models.*CL*>
+    <form>      
+        <button type="submit"  class="btn btn-primary" asp-controller="*CL*" asp-action="create">Create</button>
+        <table>
+            <thead>
+                <tr>
+                    *PROP*
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var v in Model)
+                {
+                <tr>
+                    *props2*
+                    <td><button type="submit" class="btn btn-primary" asp-action="update" asp-route-id="@v.Id">Edit</button></td>
+                    <td><button type="submit" class="btn btn-primary" asp-action="delete" asp-route-id="@v.Id">Delete</button></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </form>

@@ -1,0 +1,16 @@
+using System.Windows.Controls;
+
+namespace *NS*
+{
+
+    public partial class *ClassName*Control : UserControl
+    {
+
+        public *ClassName*Control()  : base()
+        {
+            InitializeComponent();
+        }
+
+
+    }
+}

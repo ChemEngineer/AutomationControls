@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="*namespace*.*class*Control"
+             Title="*class*">
+  <ListView x:Name="lv*class*" ItemsSource="{Binding}">
+  <ListView.Header>
+    <StackLayout Orientation="Horizontal" >
+        <Button x:Name="btnAdd" Text="Add" Clicked="btnAdd_Clicked" />
+    </StackLayout>
+  </ListView.Header>
+  <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem x:Name="miEdit" Clicked="miEdit_Clicked" Text="Edit" />
+                                <MenuItem x:Name="miDelete" Clicked="miDelete_Clicked" Text="Delete" />
+                            </ViewCell.ContextActions>
+                            <Frame>
+                                <StackLayout >
+                                    *properties*
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+   </ListView>
+</ContentPage>

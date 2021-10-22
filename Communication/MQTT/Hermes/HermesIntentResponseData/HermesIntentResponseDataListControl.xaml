@@ -1,0 +1,16 @@
+<UserControl x:Class="AutomationControls.communication.mqtt.HermesIntentResponseDataListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:convert="clr-namespace:AutomationControls.WPF.Converters;assembly=PD_ClassLibrary"
+             xmlns:local="clr-namespace:AutomationControls.communication.mqtt">
+    <DataGrid x:Name="dg" ItemsSource="{Binding}" >
+	            <DataGridTextColumn Header="sessionId" Binding="{Binding sessionId , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="customData" Binding="{Binding customData , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="input" Binding="{Binding input , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="asrTokens" Binding="{Binding asrTokens , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="intent" Binding="{Binding intent , UpdateSourceTrigger=PropertyChanged}" />
+
+    </DataGrid>
+</UserControl>

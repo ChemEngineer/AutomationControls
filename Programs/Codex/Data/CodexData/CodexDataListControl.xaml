@@ -1,0 +1,20 @@
+<UserControl x:Class="AutomationControls.CodexDataListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AutomationControls">
+    <DataGrid x:Name="dg" ItemsSource="{Binding}" >
+	            <DataGridTextColumn Header="androidNamespace" Binding="{Binding androidNamespace , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="csNamespaceName" Binding="{Binding csNamespaceName , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="extendedNamespace" Binding="{Binding extendedNamespace , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="className" Binding="{Binding className , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="constructor" Binding="{Binding constructor , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="listConstructor" Binding="{Binding listConstructor , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="IsNotifyPropertyChanged" Binding="{Binding IsNotifyPropertyChanged , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="IsISerializable" Binding="{Binding IsISerializable , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="profileName" Binding="{Binding profileName , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="lstProperties" Binding="{Binding lstProperties , UpdateSourceTrigger=PropertyChanged}" />
+
+    </DataGrid>
+</UserControl>

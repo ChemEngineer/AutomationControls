@@ -1,0 +1,10 @@
+public static void WriteToFile(String path, String toWrite,  Context c) {
+		    try {	
+		    	File file = getPublicStorageDir(path);	
+		    	FileOutputStream fos = new FileOutputStream(file);
+		        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fos);
+		        outputStreamWriter.write(toWrite);
+		        outputStreamWriter.close();
+		    }
+		    catch (IOException e) { Log.e("Exception", "File write failed: " + e.toString()); } 
+		}

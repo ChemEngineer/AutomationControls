@@ -1,0 +1,22 @@
+<UserControl x:Class="AutomationControls.SqlDataControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			  xmlns:conv="clr-namespace:AutomationControls.WPF.Converters;assembly=PD_ClassLibrary"
+             xmlns:local="clr-namespace:AutomationControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel>
+	   <DockPanel >
+<TextBox Text="{Binding id}" /><TextBlock Text="id" /></DockPanel>
+
+<DockPanel >
+<TextBox Text="{Binding lastUpdated}" /><TextBlock Text="lastUpdated" /></DockPanel>
+
+<DockPanel >
+<TextBox Text="{Binding data}" /><TextBlock Text="data" /></DockPanel>
+
+
+    </DockPanel>
+</UserControl>

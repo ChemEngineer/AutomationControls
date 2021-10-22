@@ -1,0 +1,40 @@
+<UserControl x:Class="AutomationControls.CodexDataControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:convert="clr-namespace:AutomationControls.WPF.Converters;assembly=PD_ClassLibrary"
+             xmlns:local="clr-namespace:AutomationControls">
+    <StackPanel Orientation="Vertical" >
+	   <DockPanel DockPanel.Dock="Top">
+<TextBlock Text="androidNamespace" /><TextBox Text="{Binding androidNamespace}" /></DockPanel>
+
+<DockPanel DockPanel.Dock="Top">
+<TextBlock Text="csNamespaceName" /><TextBox Text="{Binding csNamespaceName}" /></DockPanel>
+
+<DockPanel DockPanel.Dock="Top">
+<TextBlock Text="extendedNamespace" /><TextBox Text="{Binding extendedNamespace}" /></DockPanel>
+
+<DockPanel DockPanel.Dock="Top">
+<TextBlock Text="className" /><TextBox Text="{Binding className}" /></DockPanel>
+
+<DockPanel DockPanel.Dock="Top">
+<TextBlock Text="constructor" /><TextBox Text="{Binding constructor}" /></DockPanel>
+
+<DockPanel DockPanel.Dock="Top">
+<TextBlock Text="listConstructor" /><TextBox Text="{Binding listConstructor}" /></DockPanel>
+
+<CheckBox Content="IsNotifyPropertyChanged" IsChecked="{Binding IsNotifyPropertyChanged , UpdateSourceTrigger=PropertyChanged}" />
+<CheckBox Content="IsISerializable" IsChecked="{Binding IsISerializable , UpdateSourceTrigger=PropertyChanged}" />
+        <CheckBox Content="IsEntityFramework" IsChecked="{Binding IsEntityFramework, UpdateSourceTrigger=PropertyChanged}" />
+        <DockPanel DockPanel.Dock="Top">
+<TextBlock Text="profileName" /><TextBox Text="{Binding profileName}" /></DockPanel>
+
+<DockPanel >
+<ComboBox Width="100" ItemsSource="{Binding lstProperties , UpdateSourceTrigger=PropertyChanged}" />
+<TextBlock Text="lstProperties" />
+</DockPanel>
+
+
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,28 @@
+<UserControl x:Class="AutomationControls.communication.mqtt.HermesIntentResponseDataControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:convert="clr-namespace:AutomationControls.WPF.Converters;assembly=PD_ClassLibrary"
+             xmlns:local="clr-namespace:AutomationControls.communication.mqtt">
+    <StackPanel Orientation="Vertical" >
+	   <DockPanel DockPanel.Dock="Top">
+<TextBlock Text="sessionId" /><TextBox Text="{Binding sessionId}" /></DockPanel>
+
+<DockPanel DockPanel.Dock="Top">
+<TextBlock Text="customData" /><TextBox Text="{Binding customData}" /></DockPanel>
+
+<DockPanel DockPanel.Dock="Top">
+<TextBlock Text="input" /><TextBox Text="{Binding input}" /></DockPanel>
+
+<DockPanel >
+<ComboBox Width="100" ItemsSource="{Binding asrTokens , UpdateSourceTrigger=PropertyChanged}" />
+<TextBlock Text="asrTokens" />
+</DockPanel>
+
+<DockPanel DockPanel.Dock="Top">
+<TextBlock Text="intent" /><TextBox Text="{Binding intent}" /></DockPanel>
+
+
+    </StackPanel>
+</UserControl>

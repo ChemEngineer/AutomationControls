@@ -1,0 +1,7 @@
+@model *NS*.Models.*CL*
+
+@{
+    ViewData["Title"] = "*CL*";
+}
+
+*ENUM*

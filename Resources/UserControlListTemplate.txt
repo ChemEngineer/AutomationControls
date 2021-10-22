@@ -1,0 +1,29 @@
+using System.Windows.Controls;
+
+namespace *NS*
+{
+
+    public partial class *ClassName*ListControl : UserControl
+    {
+
+        public *ClassName*ListControl()  : base()
+        {
+            InitializeComponent();
+			dg.Items.Clear();
+        }
+
+		 public *ClassName*List GetSelectedItems()
+        {
+            *ClassName*List lst = new *ClassName*List();
+            foreach (*ClassName* v in dg.SelectedItems) { lst.Add(v); }
+            return lst;
+        }
+
+        public *ClassName*List GetItemsSource()
+        {
+            *ClassName*List lst = new *ClassName*List();
+            foreach (*ClassName* v in dg.ItemsSource) { lst.Add(v); }
+            return lst;
+        }
+    }
+}

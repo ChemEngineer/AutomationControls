@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="AutomationControls.CodexDataListControl2"
+             AllowDrop="True"
+             DragOver="DragOver2"
+             Drop="Drop2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:uc="clr-namespace:AutomationControls.Communication">
+    <DockPanel >
+       
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="BlazorEF">
+                <MenuItem x:Name="miAllBlazorEF" Header="All" Click="miAllBlazorEF_Click" />
+            </MenuItem>
+            <MenuItem Header="Blazor" >
+                <MenuItem x:Name="miAllBlazor" Header="All" Click="miAllBlazor_Click" />
+                <MenuItem x:Name="miIndividual" Header="Individual" Click="miIndividual_Click" />
+                <MenuItem Name="miBlazorDetailsView" Header="Details View" Click="miBlazorDetailsView_Click" />
+                <MenuItem x:Name="miBlazorEditView" Header="Edit View" Click="miBlazorEditView_Click" />
+                <MenuItem Name="miBlazorCreateView" Header="Create View" Click="miBlazorCreateView_Click" />
+                <MenuItem Name="miBlazorUpdateView" Header="Update View" Click="miBlazorUpdateView_Click" />
+            </MenuItem>
+            <MenuItem Header="MVC" >
+                <MenuItem x:Name="miAllMvc" Header="All" Click="miAllMvc_Click" />
+                <MenuItem x:Name="miModel" Header="Model" Click="miModel_Click" />
+                <MenuItem x:Name="miRazorTable" Header="Razor Table" Click="miRazorTable_Click" />
+                <MenuItem x:Name="miMvcController" Header="MVC Controller" Click="miMvcController_Click" />
+                <MenuItem x:Name="miSeedExtension" Header="Seed Extension" Click="miSeedExtension_Click" />
+                <MenuItem x:Name="miConnectionString" Header="SQL Connection String" Click="miConnectionString_Click" />
+                <MenuItem x:Name="miIDataRepository" Header="IDataRepository" Click="miIDataRepository_Click" />
+                <MenuItem x:Name="miDataRepository" Header="DataRepository" Click="miDataRepository_Click" />
+                <MenuItem  Header="ListView" Click="miListView_Click" />
+                <MenuItem Name="miDetailsView" Header="Details View" Click="miDetailsView_Click" />
+                <MenuItem  Header="Edit View" Click="miEditView_Click" />
+                <MenuItem  Header="Create View" Click="miCreateView_Click" />
+                <MenuItem  Header="Update View" Click="miUpdateView_Click" />
+            </MenuItem>
+            <MenuItem Header="MVC EF" >
+                <MenuItem x:Name="miAllMvcEF" Header="All" Click="miAllMvcEF_Click" />
+                <MenuItem x:Name="miModelEF" Header="Model" Click="miModelEF_Click" />
+                <MenuItem  Header="DbContext" Click="miDbContext_Click" />
+                <MenuItem  Header="Razor Table" Click="miRazorTable_Click" />
+                <MenuItem x:Name="miMvcControllerEF" Header="MVC Controller" Click="miMvcControllerEF_Click" />
+                <MenuItem Header="Seed Extension" Click="miSeedExtension_Click" />
+                <MenuItem  Header="SQL Connection String" Click="miConnectionString_Click" />
+                <MenuItem  Header="IDataRepository" Click="miIDataRepository_Click" />
+                <MenuItem  Header="DataRepository" Click="miDataRepository_Click" />
+                <MenuItem  Header="ListView" Click="miListView_Click" />
+                <MenuItem  Header="Details View" Click="miDetailsView_Click" />
+                <MenuItem  Header="Edit View" Click="miEditView_Click" />
+                <MenuItem  Header="Create View" Click="miCreateView_Click" />
+                <MenuItem  Header="Update View" Click="miUpdateView_Click" />
+            </MenuItem>
+            <MenuItem Header="C#">
+                <MenuItem x:Name="miProperties" Header="Properties" Click="miProperties_Click" />
+                <MenuItem x:Name="miSurrogate" Header="Surrogate" Click="miSurrogate_Click" />
+                <MenuItem x:Name="miCSEvent" Header="Event" Click="miCSEvent_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="Xamarin" Header="Xamarin">
+                <MenuItem x:Name="XamarinData" Header="Data Control" Click="XamarinData_Click" />
+            </MenuItem>
+            <MenuItem Header="Android / Java">
+                <MenuItem Header="Gson Pattern" x:Name="GsonPattern" Click="Gson_Click" />
+                <MenuItem Header="Kotlin Fragment" x:Name="KotlinFragment" Click="KotlinFragment_Click" />
+            </MenuItem>
+            <MenuItem x:Name="miConvert" Header="Convert" ToolTip="Convert Json To Codex Data" Click="miConvert_Click" />
+        </Menu>        
+        <ListBox x:Name="lb" ItemsSource="{Binding lstCodexData}"  DisplayMemberPath="className" DockPanel.Dock="Left" SelectionMode="Multiple"/>
+        <DockPanel x:Name="dpmain" DockPanel.Dock="Left" />
+        <DataGrid x:Name="dgProperties"  DockPanel.Dock="Left"/>
+        <DockPanel x:Name="dpProp" />
+        <TextBox x:Name="tb" DockPanel.Dock="Bottom" />
+    </DockPanel>
+</UserControl>

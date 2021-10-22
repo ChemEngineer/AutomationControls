@@ -1,0 +1,60 @@
+using *NS*.Data;
+using Microsoft.AspNetCore.Components;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
+
+namespace *NS*.Client.Components
+{
+    public class *CL*DataBase : ComponentBase
+    {
+        [Inject]
+        HttpClient Http { get; set; }
+
+        protected List<*CL*Data> lst = new();
+        protected List<*CL*Data> lstSearch = new();
+        protected *CL*Data data = new();
+        protected string SearchString { get; set; }
+
+        protected override async Task OnInitializedAsync()
+        {
+            await Get*CL*();
+        }
+
+        protected async Task Get*CL*()
+        {
+            lst = await Http.GetFromJsonAsync<List<*CL*Data>>("api/*CL*");
+            lstSearch = lst;
+        }
+
+        protected void Filter*CL*()
+        {
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                lst = lstSearch
+                    .Where(x => x.Name.IndexOf(SearchString, StringComparison.OrdinalIgnoreCase) != -1)
+                    .ToList();
+            }
+            else
+            {
+                lst = lstSearch;
+            }
+        }
+
+        protected async Task DeleteConfirm(int id)
+        {
+             data = lst.FirstOrDefault(x => x.Id == id);
+            if (data.Id == id)
+                await Delete*CL*(id);
+        }
+
+        protected async Task Delete*CL*(int id)
+        {
+            await Http.DeleteAsync("api/*CL*/" + id);
+            await Get*CL*();
+        }
+    }
+}

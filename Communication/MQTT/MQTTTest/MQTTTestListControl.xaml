@@ -1,0 +1,14 @@
+<UserControl x:Class="AutomationControls.Communication.MQTT.MQTTTestListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:convert="clr-namespace:AutomationControls.WPF.Converters;assembly=PD_ClassLibrary"
+             xmlns:local="clr-namespace:AutomationControls.Communication.MQTT">
+    <DataGrid x:Name="dg" ItemsSource="{Binding}" >
+	            <DataGridTextColumn Header="broker" Binding="{Binding broker , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="client" Binding="{Binding client , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="progressSend" Binding="{Binding progressSend , UpdateSourceTrigger=PropertyChanged}" />
+
+    </DataGrid>
+</UserControl>

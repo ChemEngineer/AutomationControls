@@ -1,0 +1,17 @@
+<UserControl x:Class="AutomationControls.Communication.MQTT.MQTTClientListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:convert="clr-namespace:AutomationControls.WPF.Converters;assembly=PD_ClassLibrary"
+             xmlns:local="clr-namespace:AutomationControls.Communication.MQTT">
+    <DockPanel>
+        <DataGrid x:Name="dg" ItemsSource="{Binding}" SelectionChanged="dg_SelectionChanged" >
+            <DataGridTextColumn Header="Id" Binding="{Binding Id , UpdateSourceTrigger=PropertyChanged}" />
+            <DataGridTextColumn Header="IsConnected" Binding="{Binding IsConnected , UpdateSourceTrigger=PropertyChanged}" />
+        </DataGrid>
+        <!--<DataGrid  ItemsSource="{Binding lstTopic , UpdateSourceTrigger=PropertyChanged}" />-->
+        <DockPanel x:Name="dpTopics" />
+    </DockPanel>
+
+</UserControl>

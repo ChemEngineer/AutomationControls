@@ -1,0 +1,34 @@
+using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
+using *NS*.Data;
+
+#nullable disable
+
+namespace *NS*.Server.Models
+{
+    public partial class AppDBContext : DbContext
+    {
+        public AppDBContext(DbContextOptions<AppDBContext> options): base(options)
+        {
+            if (options != null)
+            {
+                var creator = (RelationalDatabaseCreator)this.Database.GetService<IDatabaseCreator>();
+                if (!creator.CanConnect())
+                    Console.WriteLine("Cannot connect to SQL");
+                try
+                {
+                    creator.CreateTables();
+                    Console.WriteLine("Created SQL Tables Successfully");
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Error Creating SQL Tables OR tables already exist");
+                }
+            }
+        }
+
+        *PROP*
+    }
+}

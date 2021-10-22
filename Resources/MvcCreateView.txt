@@ -1,0 +1,10 @@
+@model *NS*.Models.*CL*
+
+@{
+    ViewData["Title"] = "*CL*";
+}
+
+<form asp-controller="*CL*" asp-action="create" method="post">
+*ENUM*
+    <button type="submit" class="btn btn-primary" asp-controller="*CL*" asp-action="create" >Create</button>
+</form>

@@ -1,0 +1,38 @@
+
+	#region *EventName* Event Arguments
+	 
+    public class *EventName*EventArgs : EventArgs
+    {
+        public *EventName*EventArgs() { }
+        
+		private *EventName* _data;
+        public *EventName* data
+        {
+            get { return _data; }
+            set { _data = value; }
+        }
+    }
+
+
+        public event EventHandler<*EventName*EventArgs> Raise*EventName*Event;
+        protected virtual void OnRaise*EventName*Event(*EventName*EventArgs e)   // Wrap event invocations inside a protected virtual method to allow derived classes to override the event invocation behavior 
+        {
+            EventHandler<*EventName*EventArgs> handler = Raise*EventName*Event; // Make a temporary copy of the event to avoid possibility of a race condition if the last subscriber unsubscribes immediately after the null check and before the event is raised.            
+            if (handler != null)  { handler(this, e); }
+        }
+
+	#endregion
+
+	// TO USE /////////////////////////////////////////////////////////////////////////////////////////////////
+	//
+    //      *EventName*Publisher obj = new *EventName*Publisher();
+	//
+	//		pub.Raise*EventName*Event += Handle*EventName*Event;
+	//		void Handle*EventName*Event(object sender, *EventName*EventArgs e)
+	//		{
+    //       
+	//		}
+	//		//OR
+    //      pub.Raise*EventName*Event += delegate { };
+    //
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////

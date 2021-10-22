@@ -1,0 +1,12 @@
+public static class *ClassName*Serializer implements JsonSerializer<*ClassName*> {
+
+	    public *ClassName*Serializer() { super(); }
+
+	    @Override
+	    public JsonElement serialize(final *ClassName* value, final Type type, final JsonSerializationContext context) {
+	        *ClassName* ret = new *ClassName*();
+			final JsonObject jsonObj = new JsonObject();
+	        *1-1*
+	        return jsonObj;
+	    }
+}

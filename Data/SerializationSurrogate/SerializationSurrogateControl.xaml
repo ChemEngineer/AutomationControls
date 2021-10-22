@@ -1,0 +1,43 @@
+﻿<UserControl  x:Class="AutomationControls.SerializationSurrogateControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Controls="clr-namespace:AutomationControls.Controls" 
+             mc:Ignorable="d" 
+             
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Width" Value="125" />
+            <Setter Property="Height" Value="25" />
+        </Style>
+    </UserControl.Resources>
+    <DockPanel>
+        <!--<DockPanel DockPanel.Dock="Top">
+            <Button Content="Add Profile" Click="Button_Click_2" DockPanel.Dock="Left" />
+            <TextBox x:Name="tbAddProfile" Width="0"  DockPanel.Dock="Left" />
+        </DockPanel>-->
+        <DockPanel DockPanel.Dock="Top">
+            <!--<TextBox Text="{Binding currentType.Name, Mode=OneWay}"/>-->
+            <!--<TreeView x:Name="tv" />-->
+            <Controls:SurrogateClassListBox x:Name="lbClasses" SelectionChanged="SelectionChanged" SelectedItem="{Binding ClassName}" />
+            <Controls:SurrogateProfileListBox x:Name="lbProfiles" SelectionChanged="SelectionChanged"  SelectedItem="{Binding currentProfile}" />  
+           
+            <StackPanel>
+                <Button Content="Serialize" Click="Button_Serialize" />
+                <Button Content="Deserialize" Click="Button_Deserialize" />
+
+            </StackPanel>
+
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top"  >
+            <TabControl x:Name="tc" DockPanel.Dock="Top"   >
+                <TabItem x:Name="ti">
+
+                </TabItem>
+            </TabControl>
+
+        </DockPanel>
+    </DockPanel>
+</UserControl>

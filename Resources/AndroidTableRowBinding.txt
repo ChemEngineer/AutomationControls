@@ -1,0 +1,9 @@
+			<TableRow>
+        <TextView	 
+			android:text="*name*"  
+			android:gravity="left" />
+        <TextView
+			android:id="@+id/tv*name*"
+			android:text="@{data.*name*}"
+            android:gravity="left" />
+ </TableRow>

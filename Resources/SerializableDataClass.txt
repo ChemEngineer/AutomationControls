@@ -1,0 +1,80 @@
+using System;
+using System.ComponentModel;
+using AutomationControls.Extensions;
+using AutomationControls.Interfaces;
+using AutomationControls.BaseClasses;
+using AutomationControls.Lists.Abstract;
+using AutomationControls.Attributes;
+using System.Collections.Generic;
+using System.IO.Ports;
+using System.Runtime.Serialization;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Linq;
+using System.Windows.Controls;
+
+namespace *NS*        
+{
+    [Serializable]
+    public class *CL* 
+    {
+        public *CL*() 
+        {
+            Initialize();
+        }
+
+        private void Initialize() { }
+
+        *PROP*
+
+        *ISerializable*
+
+		public void Serialize(string s)
+        {
+            AutomationControls.Serialization.Serializer<*CL*> ser = new AutomationControls.Serialization.Serializer<*CL*>(this);
+            ser.ToJSON(s);
+        }
+
+        public static *CL* Deserialize(string s)
+        {
+            AutomationControls.Serialization.Serializer<*CL*> ser = new AutomationControls.Serialization.Serializer<*CL*>();
+            var res = ser.FromJSON( s);
+            return res;
+        }
+    }
+
+    [Serializable]
+    public class *CL*List : ObservableCollection<*CL*> , ISerializable
+    {
+		   public *CL*List() { }
+
+        #region ISerializable Members
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("lst", this, this.GetType());
+        }
+
+        public *CL*List(SerializationInfo info, StreamingContext context)
+        {
+           
+        }
+
+        #endregion
+
+		public void Serialize(string s)
+        {
+            AutomationControls.Serialization.Serializer<*CL*List> ser = new AutomationControls.Serialization.Serializer<*CL*List>(this);
+            ser.ToJSON(s);
+        }
+
+        public static *CL*List Deserialize(string s)
+        {
+            AutomationControls.Serialization.Serializer<*CL*List> ser = new AutomationControls.Serialization.Serializer<*CL*List>();
+            var res = ser.FromJSON( s);
+            return res;
+        }
+    }
+}
+

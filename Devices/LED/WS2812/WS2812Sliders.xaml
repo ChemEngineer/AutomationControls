@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="AutomationControls.Devices.LED.WS2812Sliders"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+    <StackPanel>
+        <Slider x:Name="sldRed" Minimum="0" Maximum="255"  Value="{Binding red}"  ValueChanged="sld_ValueChanged"/>
+        <Slider x:Name="sldGreen" Minimum="0" Maximum="255"  Value="{Binding green}" ValueChanged="sld_ValueChanged"/>
+        <Slider x:Name="sldBlue" Minimum="0" Maximum="255"  Value="{Binding blue}" ValueChanged="sld_ValueChanged"/>
+        <Slider x:Name="sldDelay" Minimum="0" Maximum="255" Value="{Binding delay}" ValueChanged="sld_ValueChanged" />
+        <Slider x:Name="sldBrightness" Minimum="0" Maximum="255" Value="{Binding brightness}" ValueChanged="sld_ValueChanged" />
+    </StackPanel>
+</UserControl>

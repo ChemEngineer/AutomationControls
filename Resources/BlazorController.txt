@@ -1,0 +1,57 @@
+using *NS*.Server.Interfaces;
+using *NS*.Data;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace *NS*.Server.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class *CL*Controller : ControllerBase
+    {
+        private readonly I*CL*Repository _dataService;
+
+        public *CL*Controller(I*CL*Repository dataService)
+        {
+            _dataService = dataService;
+        }
+
+        [HttpGet]
+        public async Task<List<*CL*Data>> Get()
+        {
+            return await Task.FromResult(_dataService.ReadAll().ToList());
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            *CL*Data data = _dataService.Read(id);
+            if (data != null)
+            {
+                return Ok(data);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        public void Post(*CL*Data data)
+        {
+            _dataService.Create(data);
+        }
+
+        [HttpPut]
+        public void Put(*CL*Data data)
+        {
+            _dataService.Update(data);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _dataService.Delete(id);
+            return Ok();
+        }   
+    }
+}

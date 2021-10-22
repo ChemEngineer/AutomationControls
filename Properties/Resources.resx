@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AndroidLinearLayout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AndroidLinearLayout.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AndroidTableLayout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AndroidTableLayout.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AndroidTableRow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AndroidTableRow.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AndroidTableRowBinding" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AndroidTableRowBinding.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AndroidTextView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AndroidTextView.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AndroidTextViewBinding" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AndroidTextViewBinding.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Android_Event_Pattern" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Android Event Pattern.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Android_GSON_Deserialize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Android_GSON_Deserialize.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Android_GSON_Deserializer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Android_GSON_Deserializer.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Android_GSON_Pattern" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Android GSON Pattern.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Android_GSON_Serialize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Android_GSON_Serialize.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Android_GSON_Serializer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Android_GSON_Serializer.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Android_GSON_TypeAdapter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Android_GSON_TypeAdapter.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Android_Property_Pattern" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Android Property Pattern.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Android_Read_from_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Android_Read_from_File.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Android_Write_to_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Android_Write_to_File.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BlazorAddEditForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlazorAddEditForm.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BlazorAddEditRazor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlazorAddEditRazor.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BlazorAppDBContext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlazorAppDBContext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BlazorConfig" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlazorConfig.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BlazorController" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlazorController.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BlazorDataAccessLayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlazorDataAccessLayer.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BlazorDataComponent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlazorDataComponent.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BlazorDataComponentRazor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlazorDataComponentRazor.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BlazorEditView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlazorEditView.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BlazorEFCoreConfig" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlazorEFCoreConfig.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BlazorIDataRepository" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlazorIDataRepository.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="csDataTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\csDataTemplate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="csDataTemplate2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\csDataTemplate2.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="CS_Event_Pattern" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CS_Event_Pattern.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="CS_Event_Pattern2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CS_Event_Pattern2.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="DataControlXAML" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataControlXAML.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="DataEditorFragment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataEditorFragment.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="EFCoreSerializationExtensions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EFCoreSerializationExtensions.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="EFCoreService" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EFCoreService.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="JavaListAdapter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JavaListAdapter.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="KotlinFragment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KotlinFragment.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ListControl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ListControl.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MvcConfig" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MvcConfig.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MvcConnectionString" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MvcConnectionString.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MvcController" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MvcController.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MvcControllerEF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MvcControllerEF.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MvcCreateView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MvcCreateView.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MvcDataRepository" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MvcDataRepository.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MvcDbContext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MvcDbContext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MvcEditView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MvcEditView.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MvcIDataRepository" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MvcIDataRepository.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MvcMainCshtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MvcMainCshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MvcModel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MvcModel.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MvcModelEF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MvcModelEF.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MvcSeedExtension" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MvcSeedExtension.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MvcUpdateView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MvcUpdateView.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ObservableCollectionSerializationWrapperImplementation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ObservableCollectionSerializationWrapperImplementation.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="PropertyBindingXML" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PropertyBindingXML.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SerializableDataClass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SerializableDataClass.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SerializationSurrogate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SerializationSurrogate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UserControlListTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UserControlListTemplate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UserControlTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UserControlTemplate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="XamarinDataClass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\XamarinDataClass.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="XamarinXamlBase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\XamarinXamlBase.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="XamarinXamlCs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\XamarinXamlCs.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="XamarinXamlListBase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\XamarinXamlListBase.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="XamlAllItems" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\XamlAllItems.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+</root>

@@ -1,0 +1,52 @@
+//.csproj
+<ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include = "Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version = "3.1.1" />
+    <PackageReference Include = "Microsoft.AspNetCore.Identity.UI" Version = "3.1.1" />
+    <PackageReference Include = "Microsoft.EntityFrameworkCore.Sqlite" Version = "3.1.6" />
+    <PackageReference Include = "Microsoft.EntityFrameworkCore.SqlServer" Version = "3.1.1" />
+    <PackageReference Include = "Microsoft.EntityFrameworkCore.Tools" Version = "3.1.1" />
+    <PackageReference Include = "Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version = "1.9.10" />
+    <PackageReference Include = "Microsoft.VisualStudio.Web.CodeGeneration.Design" Version = "3.1.3" />
+    </ ItemGroup >
+
+//appsetting.json
+ConnectionStrings": {
+    "DefaultConnection": "Server=EntropyHome.Asuscomm.com;Port=3306;UID=Entropy;PWD=En3123123;Database=DB;"
+    }
+
+//Startup
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using *NS*.Models;
+using *NS*.Repository;
+using *NS*.Data;
+
+//ConfigureServices - Startup
+services.AddDbContext<*CL*DbContext>(options =>
+options.UseSqlServer(Configuration.GetConnectionString("*CL*")));
+services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+.AddEntityFrameworkStores<*CL*DbContext>();
+
+services.AddScoped(typeof(IDataRepository<*CL*>), typeof(*CL*Repository));
+
+//_Layout.cshtml
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="*CL*" asp-action="Index">*CL*</a>
+</li>
+
+//CRUD
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="*CL*" asp-action="Create">Create</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="*CL*" asp-action="Read">Read</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="*CL*" asp-action="Update">Update</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="*CL*" asp-action="Delete">Delete</a>
+</li>
+
+

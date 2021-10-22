@@ -1,0 +1,56 @@
+using *NS*.Data;
+using *NS*.Models;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace *NS*.Repository
+{
+    public class *CL*Repository : IDataRepository<*CL*>
+    {
+        private readonly *CL*DbContext context;
+        public *CL*Repository(*CL*DbContext context)
+        {
+            this.context = context;
+            context.Database.EnsureCreated();
+        }
+
+        public *CL* Create(*CL* data)
+        {
+            context.Add(data);
+            context.SaveChanges();
+            return data;
+        }
+
+        public *CL* Delete(*CL* data)
+        {
+            context.Remove(data);
+            context.SaveChanges();
+            return data;
+        }
+
+        public *CL* Read(int id)
+        {
+            return context.data.Find(id);
+        }
+
+        
+        public *CL* Update(*CL* data)
+        {
+            var res = context.data.FirstOrDefault(x => x.Id == data.Id);
+            if (res != null)
+            {
+                context.Remove(res);
+                context.Add(data);
+                context.SaveChanges();
+            }
+            return data;
+        }
+
+        public IEnumerable<*CL*> ReadAll()
+        {
+            return context.data;
+        }
+
+       
+    }
+}

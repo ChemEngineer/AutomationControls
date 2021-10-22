@@ -1,0 +1,87 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <PublishSingleFile>false</PublishSingleFile>
+    <PublishTrimmed>true</PublishTrimmed>
+    <StartupObject>AutomationControls.App</StartupObject>
+    <ApplicationIcon>4ecac952d1f35.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interfaces\ICommunicationData\**" />
+    <Compile Remove="Programs\Docker\**" />
+    <EmbeddedResource Remove="Interfaces\ICommunicationData\**" />
+    <EmbeddedResource Remove="Programs\Docker\**" />
+    <None Remove="Interfaces\ICommunicationData\**" />
+    <None Remove="Programs\Docker\**" />
+    <Page Remove="Interfaces\ICommunicationData\**" />
+    <Page Remove="Programs\Docker\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="BaseClasses\BaseClasses.cs" />
+    <Compile Remove="BaseClasses\BindingProfile.cs" />
+    <Compile Remove="BaseClasses\Lists.cs" />
+    <Compile Remove="Communication\MQTTBrokerCommunicator.cs" />
+    <Compile Remove="Communication\Pipes\PipeClentControl.xaml.cs" />
+    <Compile Remove="Communication\Serial\DataClasses\SerialPortData\SerialPortData_old.cs" />
+    <Compile Remove="Communication\Serial\DataClasses\SerialPortData\ucSerialPortDataProfile.xaml.cs" />
+    <Compile Remove="Communication\Serial\DataClasses\SerialPortData\UserControls\SerialPortCommandControl.xaml.cs" />
+    <Compile Remove="Communication\Serial\DataClasses\SerialPortData\UserControls\SerialPortListBox.xaml.cs" />
+    <Compile Remove="Communication\Serial\DataClasses\SerialPortData\UserControls\SerialPortListBoxItem.xaml.cs" />
+    <Compile Remove="Communication\Serial\SerialPortVM.cs" />
+    <Compile Remove="Communication\TCPIP\TCPClient\TCPClientListBox.xaml.cs" />
+    <Compile Remove="Communication\TCPIP\TCPClient\TCPClientListBoxItem.xaml.cs" />
+    <Compile Remove="Extensions\Extensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Communication\Pipes\PipeClentControl.xaml" />
+    <Page Remove="Communication\Serial\DataClasses\SerialPortData\ucSerialPortDataProfile.xaml" />
+    <Page Remove="Communication\Serial\DataClasses\SerialPortData\UserControls\SerialPortCommandControl.xaml" />
+    <Page Remove="Communication\Serial\DataClasses\SerialPortData\UserControls\SerialPortListBox.xaml" />
+    <Page Remove="Communication\Serial\DataClasses\SerialPortData\UserControls\SerialPortListBoxItem.xaml" />
+    <Page Remove="Communication\TCPIP\TCPClient\TCPClientListBox.xaml" />
+    <Page Remove="Communication\TCPIP\TCPClient\TCPClientListBoxItem.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MQTTnet" Version="3.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.7.0" />
+    <PackageReference Include="System.Drawing.Common" Version="4.6.0" />
+    <PackageReference Include="System.IO.Ports" Version="4.6.0" />
+    <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Devices\LED\WS2812\Controls\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ColorPicker">
+      <HintPath>T:\SVN Checkout\WPF\AutomationControls\AutomationControls\bin\Debug\ColorPicker.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

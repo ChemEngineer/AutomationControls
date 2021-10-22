@@ -1,0 +1,24 @@
+<UserControl x:Class="AutomationControls.BaseClasses.DeviceBaseListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:convert="clr-namespace:AutomationControls.WPF.Converters;assembly=PD_ClassLibrary"
+             xmlns:local="clr-namespace:AutomationControls.BaseClasses">
+    <DockPanel>
+        <DataGrid x:Name="dg" ItemsSource="{Binding}" >
+            <DataGrid.ContextMenu>
+                <ContextMenu x:FieldModifier="public" x:Name="contextmenu" >
+
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGridTextColumn Header="comm" Binding="{Binding comm , UpdateSourceTrigger=PropertyChanged}" />
+            <DataGridTextColumn Header="bus" Binding="{Binding bus , UpdateSourceTrigger=PropertyChanged}" />
+            <DataGridTextColumn Header="profileName" Binding="{Binding profileName , UpdateSourceTrigger=PropertyChanged}" />
+            <DataGridTextColumn Header="Name" Binding="{Binding Name , UpdateSourceTrigger=PropertyChanged}" />
+            <DataGridTextColumn Header="connectAtStartup" Binding="{Binding connectAtStartup , UpdateSourceTrigger=PropertyChanged}" />
+            <DataGridTextColumn Header="keepOpen" Binding="{Binding keepOpen , UpdateSourceTrigger=PropertyChanged}" />
+        </DataGrid>
+        <StackPanel x:Name="sp" />
+    </DockPanel>
+</UserControl>

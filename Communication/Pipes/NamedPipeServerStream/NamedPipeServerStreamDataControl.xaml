@@ -1,0 +1,72 @@
+<UserControl xmlns:UserControls="clr-namespace:AutomationControls.Communication.Pipes"              
+             x:Class="AutomationControls.Communication.Pipes.NamedPipeServerStreamDataControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:conv="clr-namespace:AutomationControls.WPF.Converters"
+              xmlns:pipes="clr-namespace:System.IO.Pipes;assembly=System.Core"
+             xmlns:local="clr-namespace:AutomationControls.Communication.Pipes"  >
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Width" Value="50" />
+            <Setter Property="Height" Value="25" />
+        </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="22" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="22" />
+        </Style>
+    </UserControl.Resources>
+    <DockPanel >
+        <StackPanel>
+            <DockPanel >
+                <ComboBox ItemsSource="{Binding Source={conv:EnumBindingSource {x:Type pipes:PipeTransmissionMode}}}"  SelectedItem="{Binding ReadMode}"/>
+                <TextBlock Text="ReadMode" />
+            </DockPanel>
+            <DockPanel >
+                <ComboBox  ItemsSource="{Binding Source={conv:EnumBindingSource {x:Type pipes:PipeTransmissionMode} }}"  SelectedItem="{Binding TransmissionMode}"/>
+                <TextBlock Text="TransmissionMode" />
+            </DockPanel>
+            <DockPanel >
+                <TextBox Text="{Binding InBufferSize , UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Text="InBufferSize" />
+            </DockPanel>
+            <DockPanel >
+                <TextBox Text="{Binding OutBufferSize , UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Text="OutBufferSize" />
+            </DockPanel>
+            <DockPanel >
+                <TextBox Text="{Binding Length , UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Text="Length" />
+            </DockPanel>
+            <DockPanel >
+                <TextBox Text="{Binding Position , UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Text="Position" />
+            </DockPanel>
+
+            <DockPanel >
+                <TextBox Text="{Binding ReadTimeout , UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Text="ReadTimeout" />
+            </DockPanel>
+
+            <DockPanel >
+                <TextBox Text="{Binding WriteTimeout , UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Text="WriteTimeout" />
+            </DockPanel>
+        </StackPanel>
+        <StackPanel>
+            <CheckBox Content="IsConnected" IsChecked="{Binding IsConnected , UpdateSourceTrigger=PropertyChanged}" />
+            <CheckBox Content="IsAsync" IsChecked="{Binding IsAsync , UpdateSourceTrigger=PropertyChanged}" />
+            <CheckBox Content="IsMessageComplete" IsChecked="{Binding IsMessageComplete , UpdateSourceTrigger=PropertyChanged}" />
+            <CheckBox Content="CanRead" IsChecked="{Binding CanRead , UpdateSourceTrigger=PropertyChanged}" />
+            <CheckBox Content="CanWrite" IsChecked="{Binding CanWrite , UpdateSourceTrigger=PropertyChanged}" />
+            <CheckBox Content="CanSeek" IsChecked="{Binding CanSeek , UpdateSourceTrigger=PropertyChanged}" />
+            <CheckBox Content="CanTimeout" IsChecked="{Binding CanTimeout , UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
+    </DockPanel>
+</UserControl>
+

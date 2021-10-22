@@ -1,0 +1,69 @@
+package *class*;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnFocusChangeListener;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import java.util.ArrayList;
+
+public class *class*Fragment extends Fragment {
+
+    View v;
+	Button btnCommitChanges = null;
+	
+	//TextView tv*name* = null;
+	*s1*
+	OnFocusChangeListener onFocusChangeListener;
+
+	*datatype* data = new *datatype*();
+	
+	public void data(*datatype* data) { 
+		this.data = data;
+		//if(tv*name* != null) tv*name*.setText(data.*name*);
+        *s2*
+        if(v != null) v.bringToFront();
+	}
+
+	
+	@Override    
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {  
+		
+		v = inflater.inflate(R.layout.*class*_layout, container, false);
+		
+		//tv*name* = (EditText)v.findViewById(R.id.tv_*name*);
+		*s3*
+        btnCommitChanges = (Button) v.findViewById(R.id.btn_Commit_btinfo);
+
+		//Triggers callback with updated *datatype*
+		onFocusChangeListener = new OnFocusChangeListener() {          
+
+	        public void onFocusChange(View v, boolean hasFocus) {
+
+                //if(tv*name* != null) data.*name* = tv*name*.getText().toString();
+               *s4*
+	            	UpdateFragmentListeners(data);
+
+	        }
+	    };
+		
+	    //tv*name*.setOnFocusChangeListener(onFocusChangeListener);
+		*s5*
+        UpdateFragmentListeners(data);
+
+		return v;
+	}
+	
+	//Event notification -- Returns selected btData //////////////////
+	ArrayList<*class*FragmentListener> *class*_FragmentListeners = new ArrayList<*class*FragmentListener> ();
+	public interface *class*FragmentListener  {  void on*class*FragmentListener(*datatype* s); }
+	public void set*class*FragmentListener (*class*FragmentListener  *class*_FragmentListener)  { *class*_FragmentListeners.add(*class*_FragmentListener); }
+	void UpdateFragmentListeners(*datatype* s) {
+	for (*class*FragmentListener listener : *class*_FragmentListeners) { listener.on*class*FragmentListener(s); } }
+	
+		
+}

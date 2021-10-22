@@ -1,0 +1,15 @@
+public class *ClassName*List : AutomationControls.Lists.Abstract.ObservableCollectionObjSerializationWrapper<*ClassName*>  , IProfileName    {
+        private string _defaultSerializationPath;
+        public override string defaultSerializationPath
+        {
+            get { return _defaultSerializationPath; }
+            set { _defaultSerializationPath = value; }
+        }
+        public *ClassName*List() : base() { Initialize(); }
+        public *ClassName*List(IEnumerable<*ClassName*> lst) : base(lst) { Initialize(); }
+		public override void Initialize() 
+		{
+			base.Initialize();
+		    *listConstructor*
+		}
+    }

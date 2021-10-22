@@ -1,0 +1,13 @@
+using System.Collections.Generic;
+
+namespace *NS*.Server.Interfaces
+{
+    public interface IDataRepository<T>
+    {
+        T Create(T data);
+        T Read(int id);
+        T Update(T data);
+        T Delete(int id);
+        List<T> ReadAll();
+    }
+}

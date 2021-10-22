@@ -1,0 +1,15 @@
+<UserControl x:Class="AutomationControls.Codex.Data.PropertiesDataListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AutomationControls.Codex.Data">
+    <DataGrid x:Name="dg">
+	            <DataGridTextColumn Header="name" Binding="{Binding name , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="type" Binding="{Binding type , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="IsEnum" Binding="{Binding IsEnum , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="profileName" Binding="{Binding profileName , UpdateSourceTrigger=PropertyChanged}" />
+         <DataGridTextColumn Header="defaultSerializationPath" Binding="{Binding defaultSerializationPath , UpdateSourceTrigger=PropertyChanged}" />
+
+    </DataGrid>
+</UserControl>

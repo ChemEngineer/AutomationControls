@@ -1,0 +1,24 @@
+using System;
+using System.ComponentModel;
+using System.Collections.Generic;
+using AutomationControls.Interfaces;
+
+namespace *NS*
+{
+
+    public class *CL* : AutomationControls.BaseClasses.ObjectSerializationWrapper<*CL*>
+    {
+        public *CL*() { }
+
+        *PROP*
+
+        public override string ToString() { return profileName; }
+    }
+
+    public class *CL*List : AutomationControls.Lists.Abstract.ObservableCollectionObjSerializationWrapper<*CL*>, IProfileName
+    {
+        public *CL*List() : base() { Initialize(); }
+        public *CL*List(IEnumerable<*CL*> lst) : base(lst) { Initialize(); }
+        public override void Initialize() { base.Initialize(); }
+    }
+}
