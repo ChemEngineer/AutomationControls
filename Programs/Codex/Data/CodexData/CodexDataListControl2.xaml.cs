@@ -23,7 +23,7 @@ namespace AutomationControls
 
 
         public CodexDataListControl2()
-        {
+        { 
             PipeServer.StartListeningAsync("Codex", s =>
             {
                 CodexDataList lst = (DataContext as CodexDataList);
@@ -422,10 +422,8 @@ namespace AutomationControls
             tb.Text = "";
             foreach (CodexData data in lb.SelectedItems)
             {
-
                 string s = AutomationControls.Codex.Code.CS.GenerateDataClass(data);
-                tb.Text += s + Environment.NewLine + Environment.NewLine;
-
+                tb.Text += RemoveEmptyLines(s);
             }
         }
 
@@ -569,6 +567,34 @@ namespace AutomationControls
             // tb.Text += Codex.Code.Blazor.GenerateRazorIndex(data);
 
             data.lstProperties.Where(x => x.IsList).ForEach(x => tb.Text += Codex.Code.Blazor.GenerateRazorListComponent(data, x));
+        }
+
+        private void miEnumBindingSource_Click(object sender, RoutedEventArgs e)
+        {
+           tb.Text =  Properties.Resources.EnumBindingSource;
+        }
+
+        private void miXamlDataboundControls_Click(object sender, RoutedEventArgs e)
+        {
+            CodexData data = lb.SelectedItem as CodexData;
+            if (data == null) return;
+            tb.Text = RemoveEmptyLines(xaml.GenerateDataboundControls(data));
+        }
+
+        private void miXamlDataboundDataGridControls_Click(object sender, RoutedEventArgs e)
+        {
+            CodexData data = lb.SelectedItem as CodexData;
+            if (data == null) return;
+            tb.Text = xaml.GenerateDataboundDataGrid(data);
+
+        }
+
+        private string RemoveEmptyLines(string s)
+        {
+            string ret = "";
+            var lst = s.Split(Environment.NewLine);
+            lst.Where(x => x != string.Empty).ForEach(x => ret += x + Environment.NewLine );
+            return ret;
         }
     }
 }

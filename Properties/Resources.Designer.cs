@@ -367,8 +367,7 @@ namespace AutomationControls.Properties {
         ///        [Parameter]
         ///        public int Id { get; set; }
         ///
-        ///        protected string Title = &quot;Add&quot;;
-        ///        public [rest of string was truncated]&quot;;.
+        ///        protected string Title = &quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BlazorAddEditForm {
             get {
@@ -488,9 +487,9 @@ namespace AutomationControls.Properties {
         ///            _dbContext = dbContext;
         ///        }
         ///
-        ///        public List&lt;*CL*&gt; ReadAll()
+        ///        public List&lt;*CL*Data&gt; ReadAll()
         ///        {
-        ///            Li [rest of string was truncated]&quot;;.
+        ///           [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BlazorDataAccessLayer {
             get {
@@ -515,10 +514,10 @@ namespace AutomationControls.Properties {
         ///        [Inject]
         ///        HttpClient Http { get; set; }
         ///
-        ///        protected List&lt;*CL*&gt; lst = new();
-        ///        protected List&lt;*CL*&gt; lstSearch = new();
-        ///        protected *CL* data = new();
-        ///        protected string SearchString [rest of string was truncated]&quot;;.
+        ///        protected List&lt;*CL*Data&gt; lst = new();
+        ///        protected List&lt;*CL*Data&gt; lstSearch = new();
+        ///        protected *CL*Data data = new();
+        ///       [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BlazorDataComponent {
             get {
@@ -668,7 +667,7 @@ namespace AutomationControls.Properties {
         ///namespace *NS*
         ///{
         ///
-        ///    public class *CL* : ISerializable
+        ///    public class *CL*
         ///    {
         ///        public *CL*() { }
         ///
@@ -676,6 +675,7 @@ namespace AutomationControls.Properties {
         ///
         ///		*ISerializable*
         ///
+        ///        *ENUM*
         ///    }
         ///
         ///    public class *CL*List : ObservableCollection&lt;*CL*&gt;
@@ -820,6 +820,30 @@ namespace AutomationControls.Properties {
         internal static string EFCoreService {
             get {
                 return ResourceManager.GetString("EFCoreService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   using System.Windows.Markup;
+        ///  
+        ///  public class EnumBindingSourceExtension : MarkupExtension
+        ///    {
+        ///        private Type _enumType;
+        ///        public Type EnumType
+        ///        {
+        ///            get { return this._enumType; }
+        ///            set
+        ///            {
+        ///                if (value != this._enumType)
+        ///                {
+        ///                    if (null != value)
+        ///                    {
+        ///                        Type enumType = Nullable.GetUnderlyingType(value) ?? value;
+        ///                        if (!enumType.IsEnum) [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EnumBindingSource {
+            get {
+                return ResourceManager.GetString("EnumBindingSource", resourceCulture);
             }
         }
         

@@ -312,7 +312,7 @@ namespace AutomationControls.Codex.Code
             ret.ToString().ToFile(path + "\\" + data.className + "Control.xaml.cs");
 
             ret = AutomationControls.Properties.Resources.DataControlXAML;
-            ret = ret.Replace("*ClassName*", data.className).Replace("*NS*", ns).Replace("*DataGrid*", AutomationControls.Codex.Code.xaml.Generate_XAML_Custom_Properties(data.lstProperties));
+            ret = ret.Replace("*ClassName*", data.className).Replace("*NS*", ns).Replace("*DataGrid*", AutomationControls.Codex.Code.xaml.GenerateDataboundControls(data));
             ret.ToString().ToFile(path + "\\" + data.className + "Control.xaml");
             s.Append(ret);
 
@@ -323,7 +323,7 @@ namespace AutomationControls.Codex.Code
             // tbCodexCodeWindow.Text = s.ToString();
 
             ret = AutomationControls.Properties.Resources.ListControl;
-            ret = ret.Replace("*ClassName*", data.className).Replace("*NS*", ns).Replace("*DataGrid*", AutomationControls.Codex.Code.xaml.Generate_XAML_DatgGrid_Properties(data.lstProperties)).Replace("DockPanel", "DataGrid");
+            ret = ret.Replace("*ClassName*", data.className).Replace("*NS*", ns).Replace("*DataGrid*", AutomationControls.Codex.Code.xaml.GenerateDataboundDataGrid(data)).Replace("DockPanel", "DataGrid");
             ret.ToString().ToFile(path + "\\" + data.className + "ListControl.xaml");
             s.Append(ret);
 
@@ -351,11 +351,16 @@ namespace AutomationControls.Codex.Code
            
             data.lstProperties.Where(x => x.isObject).ForEach(x => init += x.name + " = new " + x.type + "();" + Environment.NewLine);
 
+            implement += @"using System.Collections.Generic;
+                           using System.Collections.ObjectModel;
+                           using System.ComponentModel; " + Environment.NewLine;
+
             if (data.IsNotifyPropertyChanged)
             {
-                implement += " INotifyPropertyChanged";
+                implement += " INotifyPropertyChanged"; 
+                properties = AutomationControls.Codex.Code.CS.GenerateProperties(data);
             }
-            if (data.IsISerializable && data.IsNotifyPropertyChanged)
+            else if (data.IsISerializable && data.IsNotifyPropertyChanged)
             {
                 implement += ", ISerializable";
                 ser = AutomationControls.Codex.Code.CS.ISerialization(data);

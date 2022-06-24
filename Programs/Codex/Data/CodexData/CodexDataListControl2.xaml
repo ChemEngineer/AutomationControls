@@ -10,6 +10,18 @@
     <DockPanel >
        
         <Menu DockPanel.Dock="Top">
+            <MenuItem Header="XAML" >
+                <MenuItem Header="Databound Controls" Name="miXamlDataboundControls"  Click="miXamlDataboundControls_Click" />
+                <MenuItem Header="Databound DataGrid Controls" Name="miXamlDataboundDataGridControls"  Click="miXamlDataboundDataGridControls_Click" />
+            </MenuItem>
+            <MenuItem Header="C#">
+                <MenuItem x:Name="miProperties" Header="Properties" Click="miProperties_Click" />
+                <MenuItem x:Name="miSurrogate" Header="Surrogate" Click="miSurrogate_Click" />
+                <MenuItem x:Name="miCSEvent" Header="Event" Click="miCSEvent_Click"/>
+            </MenuItem>
+            <MenuItem Header="Extensions" >
+                <MenuItem Header="EnumBindingSource" Name="miEnumBindingSource" Click="miEnumBindingSource_Click" />
+            </MenuItem>
             <MenuItem Header="BlazorEF">
                 <MenuItem x:Name="miAllBlazorEF" Header="All" Click="miAllBlazorEF_Click" />
             </MenuItem>
@@ -52,11 +64,7 @@
                 <MenuItem  Header="Create View" Click="miCreateView_Click" />
                 <MenuItem  Header="Update View" Click="miUpdateView_Click" />
             </MenuItem>
-            <MenuItem Header="C#">
-                <MenuItem x:Name="miProperties" Header="Properties" Click="miProperties_Click" />
-                <MenuItem x:Name="miSurrogate" Header="Surrogate" Click="miSurrogate_Click" />
-                <MenuItem x:Name="miCSEvent" Header="Event" Click="miCSEvent_Click"/>
-            </MenuItem>
+            
             <MenuItem x:Name="Xamarin" Header="Xamarin">
                 <MenuItem x:Name="XamarinData" Header="Data Control" Click="XamarinData_Click" />
             </MenuItem>

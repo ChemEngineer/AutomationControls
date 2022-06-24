@@ -223,6 +223,9 @@
   <data name="EFCoreService" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EFCoreService.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="EnumBindingSource" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnumBindingSource.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="JavaListAdapter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\JavaListAdapter.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>

@@ -1,0 +1,61 @@
+{
+  "profileName": "new",
+  "lstlst": {
+    "new": [
+      {
+        "keepOpen": false,
+        "connectAtStartup": false,
+        "Name": "WS2812LED",
+        "profileName": null,
+        "bus": 3,
+        "tcpdata": {
+          "macAddress": null,
+          "location": null,
+          "model": null,
+          "ipAddress": "192.168.1.253",
+          "port": 23,
+          "keepOpen": false,
+          "lastUpdated": "0001-01-01T00:00:00",
+          "key": null
+        },
+        "command": 17,
+        "red": 0,
+        "green": 0,
+        "blue": 139,
+        "delay": 0,
+        "brightness": 200,
+        "streakLength": 0,
+        "cooling": 50,
+        "heat": 100
+      }
+    ]
+  },
+  "lst": [
+    {
+      "keepOpen": false,
+      "connectAtStartup": false,
+      "Name": "WS2812LED",
+      "profileName": null,
+      "bus": 3,
+      "tcpdata": {
+        "macAddress": null,
+        "location": null,
+        "model": null,
+        "ipAddress": "192.168.1.253",
+        "port": 23,
+        "keepOpen": false,
+        "lastUpdated": "0001-01-01T00:00:00",
+        "key": null
+      },
+      "command": 17,
+      "red": 0,
+      "green": 0,
+      "blue": 139,
+      "delay": 0,
+      "brightness": 200,
+      "streakLength": 0,
+      "cooling": 50,
+      "heat": 100
+    }
+  ]
+}
