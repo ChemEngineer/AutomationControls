@@ -120,6 +120,34 @@ namespace AutomationControls
             }
         }
 
+        private void miWPFControl_Click(object sender, RoutedEventArgs e)
+        {
+            CodexDataList lst = (DataContext as CodexDataList);
+            foreach (CodexData data in lb.SelectedItems)
+            {
+                string s = "";
+
+                List<string> lst3 = new List<string>();
+                // Generate types within selected data class
+                data.lstProperties.ForEach(x =>
+                {
+                    if (x.type != null)
+                    {
+                        var type = x.type.Split(new[] { "." }, StringSplitOptions.RemoveEmptyEntries).Last();
+                        foreach (var v in lst)
+                        {
+                            var classname = v.className.Split(new[] { "." }, StringSplitOptions.RemoveEmptyEntries).Last();
+                            if (type.Contains(classname))
+                            {
+                                lst3.Add(v.className);
+                                s += "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" + Environment.NewLine;
+                                s += AutomationControls.Codex.Code.CS.GenerateWPFDataClass(data);
+                            }
+                        }
+                    }
+                });
+            }
+        }
         private void Gson_Click(object sender, RoutedEventArgs e)
         {
             foreach (CodexData data in lb.SelectedItems)
@@ -422,7 +450,7 @@ namespace AutomationControls
             tb.Text = "";
             foreach (CodexData data in lb.SelectedItems)
             {
-                string s = AutomationControls.Codex.Code.CS.GenerateDataClass(data);
+                string s = AutomationControls.Codex.Code.CS.GenerateWPFDataClass(data);
                 tb.Text += RemoveEmptyLines(s);
             }
         }
@@ -480,7 +508,7 @@ namespace AutomationControls
             tb.Text += Codex.Code.Blazor.GenerateService(data);
 
             var dataPath = Path.Combine(@"C:\SerializedData\Blazor", data.className, "Components", data.className, data.className + ".cs");
-            tb.Text += Codex.Code.CS.GenerateDataClass(data, dataPath);
+            tb.Text += Codex.Code.CS.GenerateWPFDataClass(data);
 
             tb.Text += Codex.Code.Blazor.GenerateRazorTableComponent(data);
             // tb.Text += Codex.Code.Blazor.Generate_CreateView(data, new BlazorControlGenerator());
@@ -539,7 +567,7 @@ namespace AutomationControls
 
             //Shared
             var dataPath = Path.Combine(@"C:\SerializedData\BlazorEF",  "Shared" , "Models", data.className + ".cs");
-            tb.Text += Codex.Code.CS.GenerateDataClass(data, dataPath);
+            tb.Text += Codex.Code.CS.GenerateWPFDataClass(data);
 
             //Server
             tb.Text += Codex.Code.BlazorEF.Generate_Config(data);
@@ -596,5 +624,7 @@ namespace AutomationControls
             lst.Where(x => x != string.Empty).ForEach(x => ret += x + Environment.NewLine );
             return ret;
         }
+
+      
     }
 }

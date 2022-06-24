@@ -26,11 +26,11 @@ namespace AutomationControls.Codex.Code
                     PropertiesData p = data.lstProperties[j];
                     if (p.IsEnum)
                     {
-                        ret.AppendLine(Tab(1) + Tab(1) + Tab(1) + "<DataGridComboBoxColumn  Header=" + p.name + " ItemsSource=\"{conv:EnumBindingSource {x:Type local:p.name}}\" SelectedItemBinding=\"{Binding p.name}\" />");
+                        ret.AppendLine(Tab(1) + Tab(1) + Tab(1) + @"<DataGridComboBoxColumn  Header=""" + p.name + @""" ItemsSource=""{conv:EnumBindingSource {x:Type local:p.name}}""  SelectedItemBinding=""{Binding p.name}"" />");
                     }
                     else
                     {
-                        ret.AppendLine(Tab(1) + Tab(1) + Tab(1) + "<DataGridTextColumn Header=\"" + p.name + "\" Binding=\"{Binding " + p.name + " , UpdateSourceTrigger=PropertyChanged}\" />");
+                        ret.AppendLine(Tab(1) + Tab(1) + Tab(1) + "<DataGridTextColumn Header=\"" + p.name + "\" Binding=\"{Binding " + p.name + " }\" />");
                     }
                 }
 
@@ -65,7 +65,7 @@ namespace AutomationControls.Codex.Code
 
         private static string Generate_XAML_EnumComboBox(PropertiesData x)
         { 
-            string s = @"<ComboBox ItemsSource=\""{ Binding Source = { conv:EnumBindingSource { x: Type local:"+ x.type + @"} } }\"" SelectedItem=\""{Binding "+ x.name + @"}\""/>" + Environment.NewLine; ;
+            string s = @"<ComboBox ItemsSource=""{ Binding Source = { conv:EnumBindingSource { x: Type local:"+ x.type + @"} } }"" SelectedItem=""{Binding "+ x.name + @"}""/>" + Environment.NewLine; ;
             return s;
         }
       
@@ -79,7 +79,7 @@ namespace AutomationControls.Codex.Code
         private static string Generate_XAML_ComboBox(PropertiesData p)
         {
             string s = "<DockPanel >" + Environment.NewLine;
-            s += "<ComboBox Width=\"100\" ItemsSource=\"{Binding " + p.name + " , UpdateSourceTrigger=PropertyChanged}\" />" + Environment.NewLine;
+            s += "<ComboBox Width=\"100\" ItemsSource=\"{Binding " + p.name + " }\" />" + Environment.NewLine;
             s += "<TextBlock Text=\"" + p.name + "\" />" + Environment.NewLine; ;
             s += "</DockPanel>" + Environment.NewLine;
             return s;
@@ -96,7 +96,7 @@ namespace AutomationControls.Codex.Code
 
         private static string Generate_XAML_Checkbox(PropertiesData p)
         {
-            return "<CheckBox Content=\"" + p.name + "\" IsChecked=\"{Binding " + p.name + " , UpdateSourceTrigger=PropertyChanged}\" />";
+            return "<CheckBox Content=\"" + p.name + "\" IsChecked=\"{Binding " + p.name + " }\" />";
         }
 
         private static string Generate_XAML_DatgGrid_Properties(PropertiesDataList lstPropertyData)
@@ -118,7 +118,7 @@ namespace AutomationControls.Codex.Code
                         }
                         else
                         {
-                            ret.AppendLine(Tab(1) + Tab(1) + Tab(1) + "<DataGridTextColumn Header=\"" + p.name + "\" Binding=\"{Binding " + p.name + " , UpdateSourceTrigger=PropertyChanged}\" />");
+                            ret.AppendLine(Tab(1) + Tab(1) + Tab(1) + "<DataGridTextColumn Header=\"" + p.name + "\" Binding=\"{Binding " + p.name + " }\" />");
                         }
                     }
                 }

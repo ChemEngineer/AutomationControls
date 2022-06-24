@@ -15,6 +15,7 @@
                 <MenuItem Header="Databound DataGrid Controls" Name="miXamlDataboundDataGridControls"  Click="miXamlDataboundDataGridControls_Click" />
             </MenuItem>
             <MenuItem Header="C#">
+                <MenuItem x:Name="miWPFControl" Header="WPF Data Control" Click="miWPFControl_Click" />
                 <MenuItem x:Name="miProperties" Header="Properties" Click="miProperties_Click" />
                 <MenuItem x:Name="miSurrogate" Header="Surrogate" Click="miSurrogate_Click" />
                 <MenuItem x:Name="miCSEvent" Header="Event" Click="miCSEvent_Click"/>

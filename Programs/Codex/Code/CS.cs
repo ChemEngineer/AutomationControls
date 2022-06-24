@@ -99,7 +99,7 @@ namespace AutomationControls.Codex.Code
             return s.ToString();
         }
         #endregion
-        public static string PropertiesEFCore(CodexData data)   
+        public static string PropertiesEFCore(CodexData data)
         {
             StringBuilder s = new StringBuilder();
             int ctr = 1;
@@ -109,12 +109,12 @@ namespace AutomationControls.Codex.Code
                 if (o.IsList)
                 {
                     s.AppendLine(Tab(ctr) + "[NotMapped]");
-                    s.AppendLine(Tab(ctr) + "public " + o.type + " " + o.name );
+                    s.AppendLine(Tab(ctr) + "public " + o.type + " " + o.name);
                     s.AppendLine(Tab(ctr) + "{");
                     s.AppendLine(Tab(ctr++) + "get { return lstStr.FromCSV(); }");
                     s.AppendLine(Tab(ctr) + "set { lstStr = value.ToCSV(); }");
                     s.AppendLine(Tab(ctr--) + "}");
-                    s.AppendLine(Tab(ctr) + "public string "+ o.name + "Str { get; set; }");
+                    s.AppendLine(Tab(ctr) + "public string " + o.name + "Str { get; set; }");
                 }
                 else
                 {
@@ -135,7 +135,7 @@ namespace AutomationControls.Codex.Code
             s.AppendLine("using System;");
             s.AppendLine("using System.ComponentModel;");
             s.AppendLine("using System.Collections.Generic;");
-            s.AppendLine("using "+ data.csNamespaceName + ".Interfaces;");
+            s.AppendLine("using " + data.csNamespaceName + ".Interfaces;");
             if ((bool)data.IsISerializable) s.AppendLine("using System.Runtime.Serialization;");
 
             return s.ToString();
@@ -162,6 +162,8 @@ namespace AutomationControls.Codex.Code
             s.AppendLine();
             return s.ToString();
         }
+
+
 
         public static string Tab(int NumOfTabs)
         {
@@ -205,7 +207,7 @@ namespace AutomationControls.Codex.Code
             sb.AppendLine("{");
             foreach (var v in data.lstProperties)
             {
-                sb.AppendLine("info.AddValue(\"" + v.name + "\","  + v.name + ", typeof(" + v.type + "));");
+                sb.AppendLine("info.AddValue(\"" + v.name + "\"," + v.name + ", typeof(" + v.type + "));");
             }
             sb.AppendLine("}");
 
@@ -213,7 +215,7 @@ namespace AutomationControls.Codex.Code
             sb.AppendLine("{");
             foreach (var v in data.lstProperties)
             {
-                sb.AppendLine( v.name + "= (" + v.type + ") info.GetValue(\"" + v.name + "\", typeof(" + v.type + "));");
+                sb.AppendLine(v.name + "= (" + v.type + ") info.GetValue(\"" + v.name + "\", typeof(" + v.type + "));");
             }
             sb.AppendLine("}");
 
@@ -300,8 +302,14 @@ namespace AutomationControls.Codex.Code
                  .Replace("*init*", init)
                  .Replace("*implement*", implement)
                  .Replace("*NS*", ns)
-                 .Replace("*PROP*", props)
-                 .Replace("*ISerializable*", AutomationControls.Codex.Code.CS.ISerialization(data));
+                 .Replace("*PROP*", props);
+
+
+            if (data.IsISerializable)
+                ret.Replace("*ISerializable*", AutomationControls.Codex.Code.CS.ISerialization(data));
+            else
+                ret.Replace("*ISerializable*", "");
+
             s.Append(ret);
             ret.ToFile(path + "\\" + data.className + ".cs");
 
@@ -331,57 +339,35 @@ namespace AutomationControls.Codex.Code
             return s.ToString();
         }
 
-        internal static string GenerateDataClass(CodexData data, string serializePath = "")
+
+        internal static string GenerateWPFDataClass(CodexData data)
         {
-            string originalClassName = data.className;
-            if (!data.className.EndsWith("Data"))
-                data.className += "Data";
-            string path = "";
+            string path = serializePath;
             data.csNamespaceName.Split(new[] { "." }, StringSplitOptions.RemoveEmptyEntries).ForEach(x => path = System.IO.Path.Combine(path, x));
             path = System.IO.Path.Combine(path, data.className);
 
             StringBuilder s = new StringBuilder();
 
             string ret = "";
-            string init = "";
-            string implement = "";
-            string ser = "";
-            string properties = "";
-            string enums = Code.CS.Enums(data);
-           
-            data.lstProperties.Where(x => x.isObject).ForEach(x => init += x.name + " = new " + x.type + "();" + Environment.NewLine);
 
-            implement += @"using System.Collections.Generic;
-                           using System.Collections.ObjectModel;
-                           using System.ComponentModel; " + Environment.NewLine;
+            string implement = "",
+                   init = "",
+                   props = "",
+                   enums = "";
+
+            data.lstProperties.Where(x => x.isObject).ForEach(x => init += x.name + " = new " + x.type + "();" + Environment.NewLine);
 
             if (data.IsNotifyPropertyChanged)
             {
-                implement += " INotifyPropertyChanged"; 
-                properties = AutomationControls.Codex.Code.CS.GenerateProperties(data);
+                implement += " INotifyPropertyChanged";
+                //props = AutomationControls.Codex.Code.CS.PropertyChangedPattern(data);
             }
-            else if (data.IsISerializable && data.IsNotifyPropertyChanged)
-            {
-                implement += ", ISerializable";
-                ser = AutomationControls.Codex.Code.CS.ISerialization(data);
-                properties = AutomationControls.Codex.Code.CS.Properties(data);
-            }
-            else if (data.IsISerializable && !data.IsNotifyPropertyChanged)
-            {
-                implement += " ISerializable";
-                ser = AutomationControls.Codex.Code.CS.ISerializationSimple(data);
-                properties = AutomationControls.Codex.Code.CS.PropertiesSimple(data);
-            }
-            else if (data.IsEntityFramework)
-            {
-                properties = Code.CS.GenerateProperties(data);
-            }
-            else { 
-                properties = AutomationControls.Codex.Code.CS.PropertiesSimple(data);
-            }
+            if (data.IsISerializable) { implement += ", ISerializable"; }
 
-            //enums += AutomationControls.Codex.Code.CS.Enums(data);
-           
+            props += Environment.NewLine;
+            props += AutomationControls.Codex.Code.CS.Properties(data);
+            enums += AutomationControls.Codex.Code.CS.Enums(data);
+
             string ns = data.csNamespaceName;
             if (!string.IsNullOrEmpty(data.extendedNamespace))
                 ns += "." + data.extendedNamespace;
@@ -389,20 +375,117 @@ namespace AutomationControls.Codex.Code
             ret = AutomationControls.Properties.Resources.csDataTemplate
                  .Replace("*CL*", data.className)
                  .Replace("*ENUM*", enums)
-                 .Replace("*INIT*", "")
-                 .Replace("*IMPLEMENT*", implement)
+                 .Replace("*init*", init)
+                 .Replace("*implement*", implement)
                  .Replace("*NS*", ns)
-                 .Replace("*PROP*",properties)
-                 .Replace("*ISerializable*",ser);
+                 .Replace("*PROP*", props);
+
+            if (data.IsISerializable)
+                ret = ret.Replace("*ISerializable*", AutomationControls.Codex.Code.CS.ISerialization(data));
+            else
+                ret = ret.Replace("*ISerializable*", "");
+
             s.Append(ret);
             ret.ToFile(path + "\\" + data.className + ".cs");
 
-            if (!string.IsNullOrEmpty(serializePath))
-                ret.ToFile(serializePath);
+            ///
+            ret = AutomationControls.Properties.Resources.UserControlTemplate;
+            ret = ret.Replace("*ClassName*", data.className).Replace("*NS*", ns);
+            s.Append(ret);
+            ret.ToString().ToFile(path + "\\" + data.className + "Control.xaml.cs");
+
+            ret = AutomationControls.Properties.Resources.DataControlXAML;
+            ret = ret.Replace("*ClassName*", data.className).Replace("*NS*", ns).Replace("*DataGrid*", AutomationControls.Codex.Code.xaml.GenerateDataboundControls(data));
+            ret.ToString().ToFile(path + "\\" + data.className + "Control.xaml");
+            s.Append(ret);
+
+            ret = AutomationControls.Properties.Resources.UserControlListTemplate;
+            ret = ret.Replace("*ClassName*", data.className).Replace("*NS*", ns);
+            s.Append(ret);
+            ret.ToString().ToFile(path + "\\" + data.className + "ListControl.xaml.cs");
+            // tbCodexCodeWindow.Text = s.ToString();
+
+            ret = AutomationControls.Properties.Resources.ListControl;
+            ret = ret.Replace("*ClassName*", data.className).Replace("*NS*", ns).Replace("*DataGrid*", AutomationControls.Codex.Code.xaml.GenerateDataboundDataGrid(data)).Replace("DockPanel", "DataGrid");
+            ret.ToString().ToFile(path + "\\" + data.className + "ListControl.xaml");
+            s.Append(ret);
 
             //Process.Start(serializePath);
-            data.className = originalClassName;
+
+            //Process.Start(serializePath);
             return s.ToString();
+            //    string originalClassName = data.className;
+            //    if (!data.className.EndsWith("Data"))
+            //        data.className += "Data";
+            //    string path = "";
+            //    data.csNamespaceName.Split(new[] { "." }, StringSplitOptions.RemoveEmptyEntries).ForEach(x => path = System.IO.Path.Combine(path, x));
+            //    path = System.IO.Path.Combine(path, data.className);
+
+            //    StringBuilder s = new StringBuilder();
+
+            //    string ret = "";
+            //    string init = "";
+            //    string implement = "";
+            //    string ser = "";
+            //    string properties = "";
+            //    string enums = Code.CS.Enums(data);
+
+            //    data.lstProperties.Where(x => x.isObject).ForEach(x => init += x.name + " = new " + x.type + "();" + Environment.NewLine);
+
+            //    implement += @"using System.Collections.Generic;
+            //                   using System.Collections.ObjectModel;
+            //                   using System.ComponentModel; " + Environment.NewLine;
+
+
+            //     if (data.IsISerializable && data.IsNotifyPropertyChanged)
+            //    {
+            //        implement += ", ISerializable";
+            //        ser = AutomationControls.Codex.Code.CS.ISerialization(data);
+            //        properties = AutomationControls.Codex.Code.CS.Properties(data);
+            //    }
+            //    else if (data.IsISerializable && !data.IsNotifyPropertyChanged)
+            //    {
+            //        implement += " ISerializable";
+            //        ser = AutomationControls.Codex.Code.CS.ISerializationSimple(data);
+            //        properties = AutomationControls.Codex.Code.CS.PropertiesSimple(data);
+            //    }
+            //     else if (data.IsNotifyPropertyChanged)
+            //    {
+            //        implement += " INotifyPropertyChanged";
+            //        properties = AutomationControls.Codex.Code.CS.GenerateProperties(data);
+            //    }
+            //    else if (data.IsEntityFramework)
+            //    {
+            //        properties = Code.CS.GenerateProperties(data);
+            //    }
+            //    else { 
+            //        properties = AutomationControls.Codex.Code.CS.PropertiesSimple(data);
+            //    }
+
+            //    //enums += AutomationControls.Codex.Code.CS.Enums(data);
+
+            //    string ns = data.csNamespaceName;
+            //    if (!string.IsNullOrEmpty(data.extendedNamespace))
+            //        ns += "." + data.extendedNamespace;
+
+            //    ret = AutomationControls.Properties.Resources.csDataTemplate
+            //         .Replace("*CL*", data.className)
+            //         .Replace("*ENUM*", enums)
+            //         .Replace("*INIT*", "")
+            //         .Replace("*IMPLEMENT*", implement)
+            //         .Replace("*NS*", ns)
+            //         .Replace("*PROP*",properties)
+            //         .Replace("*ISerializable*",ser);
+            //    s.Append(ret);
+            //    ret.ToFile(path + "\\" + data.className + ".cs");
+
+            //    if (!string.IsNullOrEmpty(serializePath))
+            //        ret.ToFile(serializePath);
+
+            //    //Process.Start(serializePath);
+            //    data.className = originalClassName;
+            //    return s.ToString();
+            //}
         }
     }
 }
