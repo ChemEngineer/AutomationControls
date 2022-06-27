@@ -21,7 +21,6 @@ namespace AutomationControls
     public partial class CodexDataListControl2 : UserControl
     {
 
-
         public CodexDataListControl2()
         { 
             PipeServer.StartListeningAsync("Codex", s =>
@@ -125,29 +124,11 @@ namespace AutomationControls
             CodexDataList lst = (DataContext as CodexDataList);
             foreach (CodexData data in lb.SelectedItems)
             {
-                string s = "";
-
                 List<string> lst3 = new List<string>();
-                // Generate types within selected data class
-                data.lstProperties.ForEach(x =>
-                {
-                    if (x.type != null)
-                    {
-                        var type = x.type.Split(new[] { "." }, StringSplitOptions.RemoveEmptyEntries).Last();
-                        foreach (var v in lst)
-                        {
-                            var classname = v.className.Split(new[] { "." }, StringSplitOptions.RemoveEmptyEntries).Last();
-                            if (type.Contains(classname))
-                            {
-                                lst3.Add(v.className);
-                                s += "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" + Environment.NewLine;
-                                s += AutomationControls.Codex.Code.CS.GenerateWPFDataClass(data);
-                            }
-                        }
-                    }
-                });
+                tb.Text += AutomationControls.Codex.Code.CS.GenerateWPFDataClass(data);
             }
         }
+        
         private void Gson_Click(object sender, RoutedEventArgs e)
         {
             foreach (CodexData data in lb.SelectedItems)
@@ -223,31 +204,6 @@ namespace AutomationControls
                 lst.Add(new PropertiesData() { name = res[0].Trim(), type = res[1].Trim() });
             }
             return lst;
-        }
-
-        private string ParseCode(JObject jobj)
-        {
-            string s = "";
-            foreach (var v in jobj)
-            {
-                s += v.Key + " - " + v.Value + Environment.NewLine;
-            }
-            return s;
-        }
-
-        private string ParseCode(JArray jarr)
-        {
-            string s = "";
-            foreach (var v in jarr.First())
-            {
-
-            }
-            return s;
-        }
-
-        private string ParseCode(JProperty jprop)
-        {
-            return jprop.Name + " - " + jprop.Value + Environment.NewLine;
         }
 
         private void XamarinData_Click(object sender, RoutedEventArgs e)
