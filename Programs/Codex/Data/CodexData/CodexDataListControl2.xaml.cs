@@ -122,12 +122,11 @@ namespace AutomationControls
 
         private void miWPFControl_Click(object sender, RoutedEventArgs e)
         {
+            tb.Text = "";
             CodexDataList lst = (DataContext as CodexDataList);
             foreach (CodexData data in lb.SelectedItems)
             {
-                string s = "";
-
-                List<string> lst3 = new List<string>();
+                string s = AutomationControls.Codex.Code.CS.GenerateWPFDataClass(data);
                 // Generate types within selected data class
                 data.lstProperties.ForEach(x =>
                 {
@@ -139,14 +138,15 @@ namespace AutomationControls
                             var classname = v.className.Split(new[] { "." }, StringSplitOptions.RemoveEmptyEntries).Last();
                             if (type.Contains(classname))
                             {
-                                lst3.Add(v.className);
                                 s += "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" + Environment.NewLine;
                                 s += AutomationControls.Codex.Code.CS.GenerateWPFDataClass(data);
                             }
                         }
                     }
                 });
+                tb.Text += s;
             }
+          
         }
         private void Gson_Click(object sender, RoutedEventArgs e)
         {

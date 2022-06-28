@@ -26,6 +26,30 @@
               "position": 0
             },
             {
+              "name": "e",
+              "type": "EnumTest",
+              "IsEnum": true,
+              "IsList": false,
+              "profileName": null,
+              "defaultSerializationPath": null,
+              "lstEnum": [
+                {
+                  "position": 0,
+                  "value": "a"
+                },
+                {
+                  "position": 1,
+                  "value": "b"
+                },
+                {
+                  "position": 2,
+                  "value": "c"
+                }
+              ],
+              "isObject": false,
+              "position": 0
+            },
+            {
               "name": "a ",
               "type": "string",
               "IsEnum": false,
@@ -57,30 +81,63 @@
               "lstEnum": null,
               "isObject": false,
               "position": 3
-            },
+            }
+          ]
+        },
+        {
+          "androidNamespace": null,
+          "csNamespaceName": "CommonClasses.Data",
+          "extendedNamespace": null,
+          "className": "SCUServerInfo",
+          "constructor": null,
+          "listConstructor": null,
+          "IsNotifyPropertyChanged": true,
+          "IsISerializable": false,
+          "profileName": "SCUServerInfo",
+          "lstProperties": [
             {
-              "name": "e",
-              "type": "EnumTest",
-              "IsEnum": true,
+              "name": "Capable",
+              "type": "System.UInt32",
+              "IsEnum": false,
               "IsList": false,
               "profileName": null,
               "defaultSerializationPath": null,
-              "lstEnum": [
-                {
-                  "position": 0,
-                  "value": "a"
-                },
-                {
-                  "position": 1,
-                  "value": "b"
-                },
-                {
-                  "position": 2,
-                  "value": "c"
-                }
-              ],
+              "lstEnum": null,
               "isObject": false,
-              "position": 0
+              "position": 1
+            },
+            {
+              "name": "PartNumber",
+              "type": "System.String",
+              "IsEnum": false,
+              "IsList": false,
+              "profileName": null,
+              "defaultSerializationPath": null,
+              "lstEnum": null,
+              "isObject": false,
+              "position": 2
+            },
+            {
+              "name": "Version",
+              "type": "System.String",
+              "IsEnum": false,
+              "IsList": false,
+              "profileName": null,
+              "defaultSerializationPath": null,
+              "lstEnum": null,
+              "isObject": false,
+              "position": 3
+            },
+            {
+              "name": "Timestamp",
+              "type": "System.String",
+              "IsEnum": false,
+              "IsList": false,
+              "profileName": null,
+              "defaultSerializationPath": null,
+              "lstEnum": null,
+              "isObject": false,
+              "position": 4
             }
           ]
         }
@@ -108,6 +165,30 @@
             "profileName": null,
             "defaultSerializationPath": null,
             "lstEnum": null,
+            "isObject": false,
+            "position": 0
+          },
+          {
+            "name": "e",
+            "type": "EnumTest",
+            "IsEnum": true,
+            "IsList": false,
+            "profileName": null,
+            "defaultSerializationPath": null,
+            "lstEnum": [
+              {
+                "position": 0,
+                "value": "a"
+              },
+              {
+                "position": 1,
+                "value": "b"
+              },
+              {
+                "position": 2,
+                "value": "c"
+              }
+            ],
             "isObject": false,
             "position": 0
           },
@@ -143,30 +224,63 @@
             "lstEnum": null,
             "isObject": false,
             "position": 3
-          },
+          }
+        ]
+      },
+      {
+        "androidNamespace": null,
+        "csNamespaceName": "CommonClasses.Data",
+        "extendedNamespace": null,
+        "className": "SCUServerInfo",
+        "constructor": null,
+        "listConstructor": null,
+        "IsNotifyPropertyChanged": true,
+        "IsISerializable": false,
+        "profileName": "SCUServerInfo",
+        "lstProperties": [
           {
-            "name": "e",
-            "type": "EnumTest",
-            "IsEnum": true,
+            "name": "Capable",
+            "type": "System.UInt32",
+            "IsEnum": false,
             "IsList": false,
             "profileName": null,
             "defaultSerializationPath": null,
-            "lstEnum": [
-              {
-                "position": 0,
-                "value": "a"
-              },
-              {
-                "position": 1,
-                "value": "b"
-              },
-              {
-                "position": 2,
-                "value": "c"
-              }
-            ],
+            "lstEnum": null,
             "isObject": false,
-            "position": 0
+            "position": 1
+          },
+          {
+            "name": "PartNumber",
+            "type": "System.String",
+            "IsEnum": false,
+            "IsList": false,
+            "profileName": null,
+            "defaultSerializationPath": null,
+            "lstEnum": null,
+            "isObject": false,
+            "position": 2
+          },
+          {
+            "name": "Version",
+            "type": "System.String",
+            "IsEnum": false,
+            "IsList": false,
+            "profileName": null,
+            "defaultSerializationPath": null,
+            "lstEnum": null,
+            "isObject": false,
+            "position": 3
+          },
+          {
+            "name": "Timestamp",
+            "type": "System.String",
+            "IsEnum": false,
+            "IsList": false,
+            "profileName": null,
+            "defaultSerializationPath": null,
+            "lstEnum": null,
+            "isObject": false,
+            "position": 4
           }
         ]
       }
