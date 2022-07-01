@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -7,9 +6,9 @@
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <PublishReadyToRun>true</PublishReadyToRun>
     <PublishSingleFile>false</PublishSingleFile>
-    <PublishTrimmed>true</PublishTrimmed>
+    <PublishTrimmed>false</PublishTrimmed>
     <StartupObject>AutomationControls.App</StartupObject>
-    <ApplicationIcon>4ecac952d1f35.ico</ApplicationIcon>
+    <ApplicationIcon>4ecac952d1f35.ico</ApplicationIcon> 
   </PropertyGroup>
 
   <ItemGroup>
