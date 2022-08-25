@@ -22,12 +22,19 @@ namespace AutomationControls.Communication.Pipes
 
         private async void btnConnect_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+                NamedPipeClientStreamData data = DataContext as NamedPipeClientStreamData;
             await Task.Run(() =>
             {
-                NamedPipeClientStreamData data = DataContext as NamedPipeClientStreamData;
-                if (data != null)
+                try
                 {
-                    data.Connect();
+                    if (data != null)
+                    {
+                        data.Connect();
+                    }
+                }
+                catch (Exception e)
+                {
+                    data.ServerName = e.Message;
                 }
             }, CancellationToken.None);
         }
@@ -35,12 +42,12 @@ namespace AutomationControls.Communication.Pipes
 
         private async void btnSend_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+                NamedPipeClientStreamData data = DataContext as NamedPipeClientStreamData;
             await Task.Run(() =>
             {
-                NamedPipeClientStreamData data = DataContext as NamedPipeClientStreamData;
                 if (data != null)
                 {
-                    data.Send(tbSend.Text);
+                   btnSend.Dispatcher.Invoke(()  => { data.Send(tbSend.Text); });
                 }
             }, CancellationToken.None);
         }
