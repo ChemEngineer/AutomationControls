@@ -10,7 +10,7 @@ namespace AutomationControls.Codex.Code
 {
     public class CS
     {
-        static string serializePath = @"C:\SerializedData\Generated\CSharp\";
+        static string serializePath = @"C:\SerializedData\Generated\";
 
         private static string eventNameKey = "*EventName*";
 
@@ -368,10 +368,8 @@ namespace AutomationControls.Codex.Code
             props += AutomationControls.Codex.Code.CS.Properties(data);
             enums += AutomationControls.Codex.Code.CS.Enums(data);
 
-            string ns = data.csNamespaceName;
-            if (!string.IsNullOrEmpty(data.extendedNamespace))
-                ns += "." + data.extendedNamespace;
-
+            string ns = data.csNamespaceName + @".ViewModels";
+            
             ret = AutomationControls.Properties.Resources.csDataTemplate
                  .Replace("*CL*", data.className)
                  .Replace("*ENUM*", enums)
@@ -386,106 +384,34 @@ namespace AutomationControls.Codex.Code
                 ret = ret.Replace("*ISerializable*", "");
 
             s.Append(ret);
-            ret.ToFile(path + "\\" + data.className + ".cs");
+            ret.ToFile(path + "\\ViewModels\\" + data.className + ".cs");
 
             ///
+            ns = data.csNamespaceName + @".ModelViews";
             ret = AutomationControls.Properties.Resources.UserControlTemplate;
             ret = ret.Replace("*ClassName*", data.className).Replace("*NS*", ns);
             s.Append(ret);
-            ret.ToString().ToFile(path + "\\" + data.className + "Control.xaml.cs");
+            ret.ToString().ToFile(path + "\\ModelViews\\" + data.className + "Control.xaml.cs");
 
             ret = AutomationControls.Properties.Resources.DataControlXAML;
             ret = ret.Replace("*ClassName*", data.className).Replace("*NS*", ns).Replace("*DataGrid*", AutomationControls.Codex.Code.xaml.GenerateDataboundControls(data));
-            ret.ToString().ToFile(path + "\\" + data.className + "Control.xaml");
+            ret.ToString().ToFile(path + "\\ModelViews\\" + data.className + "Control.xaml");
             s.Append(ret);
 
             ret = AutomationControls.Properties.Resources.UserControlListTemplate;
             ret = ret.Replace("*ClassName*", data.className).Replace("*NS*", ns);
             s.Append(ret);
-            ret.ToString().ToFile(path + "\\" + data.className + "ListControl.xaml.cs");
+            ret.ToString().ToFile(path + "\\ModelViews\\" + data.className + "ListControl.xaml.cs");
             // tbCodexCodeWindow.Text = s.ToString();
 
             ret = AutomationControls.Properties.Resources.ListControl;
             ret = ret.Replace("*ClassName*", data.className).Replace("*NS*", ns).Replace("*DataGrid*", AutomationControls.Codex.Code.xaml.GenerateDataboundDataGrid(data)).Replace("DockPanel", "DataGrid");
-            ret.ToString().ToFile(path + "\\" + data.className + "ListControl.xaml");
+            ret.ToString().ToFile(path + "\\ModelViews\\" + data.className + "ListControl.xaml");
             s.Append(ret);
 
             //Process.Start(serializePath);
-
-            //Process.Start(serializePath);
             return s.ToString();
-            //    string originalClassName = data.className;
-            //    if (!data.className.EndsWith("Data"))
-            //        data.className += "Data";
-            //    string path = "";
-            //    data.csNamespaceName.Split(new[] { "." }, StringSplitOptions.RemoveEmptyEntries).ForEach(x => path = System.IO.Path.Combine(path, x));
-            //    path = System.IO.Path.Combine(path, data.className);
-
-            //    StringBuilder s = new StringBuilder();
-
-            //    string ret = "";
-            //    string init = "";
-            //    string implement = "";
-            //    string ser = "";
-            //    string properties = "";
-            //    string enums = Code.CS.Enums(data);
-
-            //    data.lstProperties.Where(x => x.isObject).ForEach(x => init += x.name + " = new " + x.type + "();" + Environment.NewLine);
-
-            //    implement += @"using System.Collections.Generic;
-            //                   using System.Collections.ObjectModel;
-            //                   using System.ComponentModel; " + Environment.NewLine;
-
-
-            //     if (data.IsISerializable && data.IsNotifyPropertyChanged)
-            //    {
-            //        implement += ", ISerializable";
-            //        ser = AutomationControls.Codex.Code.CS.ISerialization(data);
-            //        properties = AutomationControls.Codex.Code.CS.Properties(data);
-            //    }
-            //    else if (data.IsISerializable && !data.IsNotifyPropertyChanged)
-            //    {
-            //        implement += " ISerializable";
-            //        ser = AutomationControls.Codex.Code.CS.ISerializationSimple(data);
-            //        properties = AutomationControls.Codex.Code.CS.PropertiesSimple(data);
-            //    }
-            //     else if (data.IsNotifyPropertyChanged)
-            //    {
-            //        implement += " INotifyPropertyChanged";
-            //        properties = AutomationControls.Codex.Code.CS.GenerateProperties(data);
-            //    }
-            //    else if (data.IsEntityFramework)
-            //    {
-            //        properties = Code.CS.GenerateProperties(data);
-            //    }
-            //    else { 
-            //        properties = AutomationControls.Codex.Code.CS.PropertiesSimple(data);
-            //    }
-
-            //    //enums += AutomationControls.Codex.Code.CS.Enums(data);
-
-            //    string ns = data.csNamespaceName;
-            //    if (!string.IsNullOrEmpty(data.extendedNamespace))
-            //        ns += "." + data.extendedNamespace;
-
-            //    ret = AutomationControls.Properties.Resources.csDataTemplate
-            //         .Replace("*CL*", data.className)
-            //         .Replace("*ENUM*", enums)
-            //         .Replace("*INIT*", "")
-            //         .Replace("*IMPLEMENT*", implement)
-            //         .Replace("*NS*", ns)
-            //         .Replace("*PROP*",properties)
-            //         .Replace("*ISerializable*",ser);
-            //    s.Append(ret);
-            //    ret.ToFile(path + "\\" + data.className + ".cs");
-
-            //    if (!string.IsNullOrEmpty(serializePath))
-            //        ret.ToFile(serializePath);
-
-            //    //Process.Start(serializePath);
-            //    data.className = originalClassName;
-            //    return s.ToString();
-            //}
+           
         }
     }
 }

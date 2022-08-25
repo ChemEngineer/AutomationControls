@@ -660,9 +660,11 @@ namespace AutomationControls.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using System.Collections.Generic;
+        ///   Looks up a localized string similar to using System;
+        ///using System.Collections.Generic;
         ///using System.Runtime.Serialization;
         ///using System.Collections.ObjectModel;
+        ///using System.ComponentModel;
         ///
         ///namespace *NS*
         ///{
