@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <UseWPF>true</UseWPF>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <PublishReadyToRun>true</PublishReadyToRun>
@@ -10,7 +10,9 @@
     <StartupObject>AutomationControls.App</StartupObject>
     <ApplicationIcon>4ecac952d1f35.ico</ApplicationIcon> 
   </PropertyGroup>
-
+	<PropertyGroup>
+  <GenerateRuntimeConfigDevFile>true</GenerateRuntimeConfigDevFile>
+</PropertyGroup>
   <ItemGroup>
     <Compile Remove="Interfaces\ICommunicationData\**" />
     <Compile Remove="Programs\Docker\**" />

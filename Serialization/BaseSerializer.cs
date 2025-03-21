@@ -232,24 +232,24 @@ namespace AutomationControls.Serialization
         }
 
 
-        public string ToBinary(string path)
-        {
-            System.IO.FileStream s = new System.IO.FileStream(path, System.IO.FileMode.Create);
-            System.Runtime.Serialization.IFormatter formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-            formatter.Serialize(s, t);
-            s.Close();
-            return File.ReadAllText(path);
-        }
+        //public string ToBinary(string path)
+        //{
+        //    System.IO.FileStream s = new System.IO.FileStream(path, System.IO.FileMode.Create);
+        //    System.Runtime.Serialization.IFormatter formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+        //    formatter.Serialize(s, t);
+        //    s.Close();
+        //    return File.ReadAllText(path);
+        //}
 
-        public T FromBinary(string path)
-        {
-            T ret = new T();
-            FileStream fs = new FileStream(path, FileMode.Open);
-            System.Runtime.Serialization.IFormatter formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-            ret = (T)formatter.Deserialize(fs);
-            fs.Close();
-            return ret;
-        }
+        //public T FromBinary(string path)
+        //{
+        //    T ret = new T();
+        //    FileStream fs = new FileStream(path, FileMode.Open);
+        //    System.Runtime.Serialization.IFormatter formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+        //    ret = (T)formatter.Deserialize(fs);
+        //    fs.Close();
+        //    return ret;
+        //}
 
 
 
